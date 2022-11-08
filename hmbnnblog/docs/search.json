@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Envilab",
+    "section": "",
+    "text": "Geospatial Data Address\n\n\n\n\n\n\n\nGeospatial Data\n\n\n\n\n\n\n\n\n\n\n\nMar 25, 2021\n\n\nHossein Madadi\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html",
+    "title": "Geospatial Data Address",
+    "section": "",
+    "text": "Worldclim\nAnnual average climate data https://en.tutiempo.net/climate/iran.html\nClimate charts https://www.climate-charts.com/\nGlobal Historical Climatology Network Monthly https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-monthly-version-4\nClimate Data Online Search https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND ***\nClimate Scenario Data from the Rossby Centre http://www.smhi.se/en/research/research-departments/climate-research-rossby-centre2-552/climate-scenario-data-from-the-rossby-centre-1.34020\nUpperair Air Data http://weather.uwyo.edu/upperair/\nMerra 2 http://www.soda-pro.com/web-services/meteo-data/merra\nCopernicus https://cds.climate.copernicus.eu/#!/home\nEumetsat https://eoportal.eumetsat.int/cas/login?service=https%3A%2F%2Feoportal.eumetsat.int%2FuserMgmt%2Fcallback%3Fclient_name%3DCasClient\nGlobal Surface Summary of the Day - GSOD https://www.ncei.noaa.gov/access/search/data-search/global-summary-of-the-day ***\nIntegrated Surface Dataset (Global) https://www.ncei.noaa.gov/access/search/data-search/global-hourly ***\nNOAA Climate Data https://www.ncdc.noaa.gov/isd/data-access\nSurface Data Hourly Global https://www7.ncdc.noaa.gov/CDO/cdopoemain.cmd?datasetabbv=DS3505&countryabbv=&georegionabbv=&resolution=40\nNOAA Dataset Search https://www.ncei.noaa.gov/access/search/dataset-search\nIndex of ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ ftp://ftp.ncdc.noaa.gov/pub/data/noaa\nFree access to NCEI’s archive of global coastal, oceanographic, geophysical, climate, and historical weather data https://www.ncei.noaa.gov/access/search/index?datasetId=global-hourly ***\nRenewable point data https://www.renewables.ninja/\nESA climate office https://climate.esa.int/en/projects/\nhttps://cfs.climate.esa.int/index.html#/\nTemperature and Precipitation data https://www.ncdc.noaa.gov/cdo-web/search https://www.ncdc.noaa.gov/cdo-web/datatools https://www.ncdc.noaa.gov/cdo-web/\nClimate Data Online: Dataset Discovery https://www.ncdc.noaa.gov/cdo-web/datasets#GHCND"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#downscaling-merra2-and-other-global-datasets",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#downscaling-merra2-and-other-global-datasets",
+    "title": "Geospatial Data Address",
+    "section": "Downscaling MERRA2 and other Global Datasets",
+    "text": "Downscaling MERRA2 and other Global Datasets\n\nThe Land surface Data Toolkit (LDT v7.2) – a data fusion environment for land data assimilation systems https://lis.gsfc.nasa.gov/ & https://github.com/NASA-LIS/LISF & https://lis.gsfc.nasa.gov/tests/ldt\nGlobSim: downscaling global reanalysis /// GlobSim (v1.0): deriving meteorological time series for point locations from multiple global reanalyses https://globsim.readthedocs.io/en/latest/? & https://gmd.copernicus.org/articles/12/4661/2019/"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#satellite-data",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#satellite-data",
+    "title": "Geospatial Data Address",
+    "section": "Satellite data",
+    "text": "Satellite data\n\nVIIRS Plus DMSP Change in Lights (VIIRS+DMSP dLIGHT), v1 (1992, 2002, 2013) https://sedac.ciesin.columbia.edu/data/set/sdei-viirs-dmsp-dlight\nEarthexplorer https://earthexplorer.usgs.gov/\nSearch Earthdata https://search.earthdata.nasa.gov/search\nLANCE: NASA Near Real-Time Data and Imagery https://earthdata.nasa.gov/earth-observation-data/near-real-time\nHazards and Disasters https://earthdata.nasa.gov/earth-observation-data/near-real-time/hazards-and-disasters\nActive Fire Data https://earthdata.nasa.gov/earth-observation-data/near-real-time/firms/active-fire-data\nFire Information for Resource Management System (FIRMS) https://earthdata.nasa.gov/earth-observation-data/near-real-time/firms\nWorldview Earthdata https://worldview.earthdata.nasa.gov/\nWorldview Snapshots https://wvs.earthdata.nasa.gov/\nGlovis https://glovis.usgs.gov/\nNasa Earth Observations https://neo.sci.gsfc.nasa.gov/\nEarthNow! Landsat Image Viewer https://earthnow.usgs.gov/observer/ , http://observer.farearth.com/observer/\nSAR Data https://web-services.unavco.org/brokered/ssara/gui\n9 Best Free Land Cover/Land Use Data https://gisgeography.com/free-global-land-cover-land-use-data/\nTerraScope - Free resource for sentinel satellites data https://terrascope.be/en\nAssessment of a Future Copernicus Earth Observation Service Component to Support Sustainable Forest Monitoring https://www.reddcopernicus.info/\nCopernicus Biomass https://climate.esa.int/en/projects/biomass/\nGlobal Forest Watch map https://gfw.global/315sv5h & https://www.globalforestwatch.org/map/?map=eyJkYXRhc2V0cyI6W3siZGF0YXNldCI6Im5ldC1jYXJib24tZmx1eCIsIm9wYWNpdHkiOjEsInZpc2liaWxpdHkiOnRydWUsImxheWVycyI6WyJuZXQtY2FyYm9uLWZsdXgtMjAwMS0yMDE5Il19LHsiZGF0YXNldCI6ImNhcmJvbi1yZW1vdmFscyIsIm9wYWNpdHkiOjEsInZpc2liaWxpdHkiOnRydWUsImxheWVycyI6WyJjYXJib24tcmVtb3ZhbHMtMjAwMS0yMDE5Il19LHsiZGF0YXNldCI6ImNhcmJvbi1lbWlzc2lvbnMiLCJvcGFjaXR5IjoxLCJ2aXNpYmlsaXR5Ijp0cnVlLCJsYXllcnMiOlsiY2FyYm9uLWVtaXNzaW9ucy0yMDAxLTIwMTkiXX0seyJkYXRhc2V0IjoicG9saXRpY2FsLWJvdW5kYXJpZXMiLCJsYXllcnMiOlsiZGlzcHV0ZWQtcG9saXRpY2FsLWJvdW5kYXJpZXMiLCJwb2xpdGljYWwtYm91bmRhcmllcyJdLCJvcGFjaXR5IjoxLCJ2aXNpYmlsaXR5Ijp0cnVlfV19&mapMenu=eyJtZW51U2VjdGlvbiI6ImRhdGFzZXRzIiwiZGF0YXNldENhdGVnb3J5IjoiY2xpbWF0ZSJ9 & https://www.nature.com/articles/s41558-020-00976-6\nSPOT satellites (1, 2, 3, 4 and 5 archive) https://regards.cnes.fr/user/swh/modules/60"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#sentinel-data",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#sentinel-data",
+    "title": "Geospatial Data Address",
+    "section": "Sentinel Data",
+    "text": "Sentinel Data\n\nDashboard https://climate.esa.int/en/odp/#/dashboard\nopenEO develops an open API to connect R, Python, JavaScript and other clients to big Earth observation cloud back-ends in a simple and unified way. https://openeo.org/\nSentinell Hub https://scihub.copernicus.eu/dhus/#/home\nSentinel5P https://s5phub.copernicus.eu/dhus/\nVito Dataset http://www.vito-eodata.be/PDF/portal/Application.html#Home\nTerraScope - Free resource for sentinel satellites data https://terrascope.be/en\nAssessment of a Future Copernicus Earth Observation Service Component to Support Sustainable Forest Monitoring https://www.reddcopernicus.info/\nCopernicus Biomass https://climate.esa.int/en/projects/biomass/\nSea Surface Temperature https://climate.esa.int/en/projects/sea-surface-temperature/data/\nSoil Moisture https://climate.esa.int/en/projects/soil-moisture/data/\nWater Vapour https://climate.esa.int/en/projects/water-vapour/data/\nAerosol https://climate.esa.int/en/projects/aerosol/data/\nFire https://climate.esa.int/en/projects/fire/data/\nGreenhouse Gases (GHGs) https://climate.esa.int/en/projects/ghgs/Data/\nHigh Resolution Land Cover https://climate.esa.int/en/projects/high-resolution-land-cover/about/\nLand Cover https://climate.esa.int/en/projects/land-cover/\nLakes https://climate.esa.int/en/projects/lakes/data/\nLand Surface Temperature https://climate.esa.int/en/projects/land-surface-temperature/\nOcean Colour https://climate.esa.int/en/projects/ocean-colour/data/\nOzone https://climate.esa.int/en/projects/ozone/data/\nRECCAP-2 supports and accelerates the analysis of regional carbon budgets https://climate.esa.int/en/projects/reccap-2/\nSea State https://climate.esa.int/en/projects/sea-state/data/\nSea Surface Salinity https://climate.esa.int/en/projects/sea-surface-salinity/data/\nGlobal Forest Watch map https://gfw.global/315sv5h & https://www.globalforestwatch.org/map/?map=eyJkYXRhc2V0cyI6W3siZGF0YXNldCI6Im5ldC1jYXJib24tZmx1eCIsIm9wYWNpdHkiOjEsInZpc2liaWxpdHkiOnRydWUsImxheWVycyI6WyJuZXQtY2FyYm9uLWZsdXgtMjAwMS0yMDE5Il19LHsiZGF0YXNldCI6ImNhcmJvbi1yZW1vdmFscyIsIm9wYWNpdHkiOjEsInZpc2liaWxpdHkiOnRydWUsImxheWVycyI6WyJjYXJib24tcmVtb3ZhbHMtMjAwMS0yMDE5Il19LHsiZGF0YXNldCI6ImNhcmJvbi1lbWlzc2lvbnMiLCJvcGFjaXR5IjoxLCJ2aXNpYmlsaXR5Ijp0cnVlLCJsYXllcnMiOlsiY2FyYm9uLWVtaXNzaW9ucy0yMDAxLTIwMTkiXX0seyJkYXRhc2V0IjoicG9saXRpY2FsLWJvdW5kYXJpZXMiLCJsYXllcnMiOlsiZGlzcHV0ZWQtcG9saXRpY2FsLWJvdW5kYXJpZXMiLCJwb2xpdGljYWwtYm91bmRhcmllcyJdLCJvcGFjaXR5IjoxLCJ2aXNpYmlsaXR5Ijp0cnVlfV19&mapMenu=eyJtZW51U2VjdGlvbiI6ImRhdGFzZXRzIiwiZGF0YXNldENhdGVnb3J5IjoiY2xpbWF0ZSJ9 & https://www.nature.com/articles/s41558-020-00976-6"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#terrian",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#terrian",
+    "title": "Geospatial Data Address",
+    "section": "Terrian",
+    "text": "Terrian\n\nThe Global Multi-Resolution Topography (GMRT) Synthesis, Bathymetry and Dem https://www.gmrt.org/GMRTMapTool/\nOpenTopography High-Resolution Topography Data and Tools https://portal.opentopography.org/datasetMetadata\nSRTM data https://srtm.csi.cgiar.org/srtmdata/\nACE2 (Altimeter Corrected Elevations) DEM is a global DEM at 3” (approx 90m at the equator), 9”, 30’ (approx 1km at the equator) and 5’ resolution http://tethys.cse.dmu.ac.uk/ACE2/shared/main\nACE - Altimeter Corrected Elevations http://www.cse.dmu.ac.uk/EAPRS/products_ace_overview.html\nDSM ALOS Global Digital Surface Model “ALOS World 3D - 30m https://www.eorc.jaxa.jp/ALOS/en/aw3d30/\nDTM FABDEM https://data.bristol.ac.uk/data/dataset/25wfy0f9ukoge2gs7a5mqpq2j7\nDSM and DTM can be used in 3D building in QGIS with Mapflow plugin"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#hydrology",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#hydrology",
+    "title": "Geospatial Data Address",
+    "section": "Hydrology",
+    "text": "Hydrology\n\nBasins, Rivers, Drainages and etc. https://www.hydrosheds.org/downloads"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#human",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#human",
+    "title": "Geospatial Data Address",
+    "section": "Human",
+    "text": "Human\n\nAnthropogenic Biomes 2000 https://sedac.ciesin.columbia.edu/data/set/anthromes-anthropogenic-biomes-world-v2-2000\nGlobal 1-km Downscaled Population Base Year and Projection Grids Based on the SSPs, v1.01 (2000 – 2100) https://sedac.ciesin.columbia.edu/data/set/popdynamics-1-km-downscaled-pop-base-year-projection-ssp-2000-2100-rev01\nGlobal Rural-Urban Mapping Project (GRUMP) https://sedac.ciesin.columbia.edu/data/set/grump-v1-urban-ext-polygons-rev02\nSocioeconomic Data and Applications Center (sedac) https://sedac.ciesin.columbia.edu/"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#sea",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#sea",
+    "title": "Geospatial Data Address",
+    "section": "Sea",
+    "text": "Sea\n\nOpenTopography High-Resolution Topography Data and Tools https://portal.opentopography.org/datasetMetadata\nThe PO.DAAC: An Open Ocean of Remote Sensing and In Situ Data for Science in the Cloud https://podaac.jpl.nasa.gov/\nOcean Dataset https://podaac-tools.jpl.nasa.gov/hitide/index.html#id=iQebtv&name=&version=0.1&mapState_x=0.038745394&mapState_y=-0.041098191&mapState_z=2&searchState_startDate=&searchState_endDate=&searchState_bbox=\nERDDAP oceanographic data https://coastwatch.pfeg.noaa.gov/erddap/index.html\nFind and download data for your coastal management needs https://coast.noaa.gov/digitalcoast/data/home.html\nDigital Coast to Get the Data, Tools https://coast.noaa.gov/digitalcoast/\nNOAA Class https://www.avl.class.noaa.gov/saa/products/welcome;jsessionid=454F7F1B8035F6B94D67B39B1A5367C5\nBathymetry data sets for the world’s oceans https://www.gebco.net/"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#github",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#github",
+    "title": "Geospatial Data Address",
+    "section": "Github",
+    "text": "Github\n\nGlobal Map data archives https://github.com/globalmaps\nDownload MERRA 2 Data https://github.com/emilylaiken/merradownload & https://github.com/TUW-GEO/merra"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#international-organisations",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#international-organisations",
+    "title": "Geospatial Data Address",
+    "section": "International Organisations",
+    "text": "International Organisations\n\nFao Geonetwork http://www.fao.org/geonetwork/srv/en/main.home\nUNEP Environmental Data Explorer http://geodata.grid.unep.ch/\nIntegrated Population and Environmental Data https://terra.ipums.org/\nNatural Earthdata, Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales http://www.naturalearthdata.com/downloads/\nGeoportal https://www.geoportal.org/?m:activeLayerTileId=osm&f:dataSource=dab\nGoogle Dataset Search https://datasetsearch.research.google.com/\nASDC Tools and Services https://eosweb.larc.nasa.gov/tools-and-services"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#atmosphere",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#atmosphere",
+    "title": "Geospatial Data Address",
+    "section": "Atmosphere",
+    "text": "Atmosphere\n\nAtmospheric Science Data Center https://eosweb.larc.nasa.gov/\nCopernicus https://atmosphere.copernicus.eu/catalogue#/"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#nasa-data",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#nasa-data",
+    "title": "Geospatial Data Address",
+    "section": "NASA Data",
+    "text": "NASA Data\n\nGiovanni https://giovanni.gsfc.nasa.gov/giovanni/\nGES DISC https://disc.gsfc.nasa.gov/datasets?project=MERRA-2"
+  },
+  {
+    "objectID": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#soil",
+    "href": "posts/2021-03-25-address_urls_geodatabase/2021-03-25-address_urls_geodatabase.html#soil",
+    "title": "Geospatial Data Address",
+    "section": "Soil",
+    "text": "Soil\n\nGlobal maps for Soil Hydraulic Properties https://www.futurewater.eu/2021/06/hihydrosoil-v2-0-now-available-on-google-earth-engine/"
+  }
+]
