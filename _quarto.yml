@@ -5,6 +5,8 @@ project:
 website:
   title: "Envinformatics"
   navbar:
+    background: primary
+    search: true
     right:
       - about.qmd
       - icon: github
