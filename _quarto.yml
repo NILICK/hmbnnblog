@@ -2,21 +2,42 @@ project:
   type: website
   output-dir: docs
 
+format:
+  html:
+    theme: Litera
+    css: styles.css
+    toc: true
+    toc-depth: 5
+
 website:
   title: "Envinformatics"
+  favicon: hmbnnblog-logo.png
+  open-graph: true
+  sidebar:
+    style: floating
+    contents:
+      - auto: "/*.ipynb"
+      - section: Geospatialaa
+        contents: posts/geospatial/*
+      - section: Explanations
+        contents: posts/explanations/*
+      - section: Analysis Methods
+        contents: posts/analysis_methods/*
+      - section: Data Science
+        contents: posts/data_science/* 
+
+
   navbar:
     background: primary
     search: true
+    collapse-below: lg
+    left:
+      - text: "Index"
+      - text: "About"
+        href: about.qmd
     right:
-      - about.qmd
       - icon: github
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
-format:
-  html:
-    theme: Materia
-    css: styles.css
-
-
 

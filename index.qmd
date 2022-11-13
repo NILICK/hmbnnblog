@@ -1,7 +1,6 @@
 ---
-title: "Envilab"
 listing:
-  contents: posts
+  contents: "posts"
   sort: "date desc"
   type: default
   categories: true
@@ -10,5 +9,3 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
-
-
