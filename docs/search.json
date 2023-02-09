@@ -305,7 +305,7 @@
     "href": "posts/geospatial/2021-03-25-address_urls_geodatabase.html",
     "title": "Geospatial Data Address",
     "section": "",
-    "text": "Worldclim\nAnnual average climate data\nClimate charts\nGlobal Historical Climatology Network Monthly\nClimate Data Online Search ***\nClimate Scenario Data from the Rossby Centre\nUpperair Air Data\nMerra 2\nCopernicus\nEumetsat\nGlobal Surface Summary of the Day - GSOD ***\nIntegrated Surface Dataset (Global) ***\nNOAA Climate Data\nSurface Data Hourly Global\nNOAA Dataset Search\nIndex of 1 2\nFree access to NCEI’s archive of global coastal, oceanographic, geophysical, climate, and historical weather data ***\nRenewable point data\nESA climate office or\nTemperature and Precipitation data 1, 2, 3\nClimate Data Online: Dataset Discovery"
+    "text": "opengeohub"
   },
   {
     "objectID": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#downscaling-merra2-and-other-global-datasets",
@@ -319,7 +319,7 @@
     "href": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#satellite-data",
     "title": "Geospatial Data Address",
     "section": "Satellite data",
-    "text": "Satellite data\n\nVIIRS Plus DMSP Change in Lights (VIIRS+DMSP dLIGHT), v1 (1992, 2002, 2013)\nEarthexplorer\nSearch Earthdata\nLANCE: NASA Near Real-Time Data and Imagery\nHazards and Disasters\nActive Fire Data\nFire Information for Resource Management System (FIRMS)\nWorldview Earthdata\nWorldview Snapshots\nGlovis\nNasa Earth Observations\nEarthNow! Landsat Image Viewer 1, 2\nSAR Data\n9 Best Free Land Cover/Land Use Data\nTerraScope - Free resource for sentinel satellites data\nAssessment of a Future Copernicus Earth Observation Service Component to Support Sustainable Forest Monitoring\nCopernicus Biomass\nGlobal Forest Watch map 1 2 3\nSPOT satellites (1, 2, 3, 4 and 5 archive)"
+    "text": "Satellite data\n\nDatasets for deep learning with satellite & aerial imagery\nVIIRS Plus DMSP Change in Lights (VIIRS+DMSP dLIGHT), v1 (1992, 2002, 2013)\nEarthexplorer\nSearch Earthdata\nLANCE: NASA Near Real-Time Data and Imagery\nHazards and Disasters\nActive Fire Data\nFire Information for Resource Management System (FIRMS)\nWorldview Earthdata\nWorldview Snapshots\nGlovis\nNasa Earth Observations\nEarthNow! Landsat Image Viewer 1, 2\nSAR Data\n9 Best Free Land Cover/Land Use Data\nTerraScope - Free resource for sentinel satellites data\nAssessment of a Future Copernicus Earth Observation Service Component to Support Sustainable Forest Monitoring\nCopernicus Biomass\nGlobal Forest Watch map 1 2 3\nSPOT satellites (1, 2, 3, 4 and 5 archive)"
   },
   {
     "objectID": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#sentinel-data",
@@ -396,20 +396,76 @@
     "href": "posts/geospatial/2021-07-03-Learning-GIS-RS.html",
     "title": "GIS & RS learning and notes",
     "section": "",
-    "text": "25 Map Types: Brilliant Ideas to Build Unbeatable Maps"
+    "text": "25 Map Types: Brilliant Ideas to Build Unbeatable Maps\nGeojson"
   },
   {
     "objectID": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#rs",
     "href": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#rs",
     "title": "GIS & RS learning and notes",
     "section": "RS",
-    "text": "RS\n\nObserving Earth From Space\nORNL DAAC\nEducational resource for exploring satellite images\nE-Learning LP DAAC\nMethane Emissions from Dairy Sources"
+    "text": "RS\n\nObserving Earth From Space\nORNL DAAC\nEducational resource for exploring satellite images\nE-Learning LP DAAC\nMethane Emissions from Dairy Sources\nMonitor Vegetation with Google Earth Engine\nMonitor Regional Climate with Google Earth Engine\nFree online courses, tutorials and tools\nSummary statistics of geospatial raster datasets based on vector geometries\nEnhancement of MODIS NIDVI to 10m resolution using U-Net"
   },
   {
     "objectID": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#python",
     "href": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#python",
     "title": "GIS & RS learning and notes",
     "section": "Python",
-    "text": "Python\n\nA Python package for geospatial analysis and interactive mapping in a Jupyter environment\nAwesome-EarthObservation-Code 1 2\nDownloading YouTube Videos\nUsing Pandas and Python to Explore Your Dataset\nCreate Beautiful Tkinter GUIs by Drag and Drop\nA simple way of creating movies from xarray objects"
+    "text": "Python\n\nA Python package for geospatial analysis and interactive mapping in a Jupyter environment\nAwesome-EarthObservation-Code 1 2\nUsing Pandas and Python to Explore Your Dataset\nDownloading YouTube Videos\nCreate Beautiful Tkinter GUIs by Drag and Drop\nA simple way of creating movies from xarray objects"
+  },
+  {
+    "objectID": "posts/data_science/2023-02-08-Geospatial_ML_DL.html",
+    "href": "posts/data_science/2023-02-08-Geospatial_ML_DL.html",
+    "title": "GepSpatial ML-DL Sources",
+    "section": "",
+    "text": "Datasets for deep learning with satellite & aerial imagery\nlists software for working with satellite & aerial imagery data & datasets.\ncourse\nTraining and deployment of deep learning models for satellite & aerial imagery\nAnnotation of datasets for deep learning applied to satellite and aerial imagery\nMineral Prediction Mapping with Machine Learning\nPredicting Spatial Data with Machine Learning\n\ngeospatial-machine-learning\n\nPython module for geospatial prediction using scikit-learn and rasterio\ngeospatial-learn\nDarts: Time Series Made Easy in Python\nCourse materials for: Geospatial Data Science\nDeep learning (DL) on satellite imagery\nA Training of Trainers Bootcamp on Machine Learning for Earth Observations\nPyspatialml: Machine learning classification and regression modelling for spatial raster data\nTorchGeo: datasets, samplers, transforms, and pre-trained models for geospatial data\nLand Cover Mapping\nLand cover mapping of the Orinoquía region in Colombia, in collaboration with Wildlife Conservation Society Colombia\nSpatial Data Science: Spatial Data Storage\nSpatial classification and regression using Scikit-learn and Rasterio"
+  },
+  {
+    "objectID": "posts/data_science/2023-02-08-Geospatial_ML_DL.html#tutorials-articles",
+    "href": "posts/data_science/2023-02-08-Geospatial_ML_DL.html#tutorials-articles",
+    "title": "GepSpatial ML-DL Sources",
+    "section": "Tutorials & Articles",
+    "text": "Tutorials & Articles\n\nMachine Learning on Earth Observation: ML4EO Bootcamp\nPredicting Rain from Satellite Images\nExciting Machine Learning Project On Satellite Images\nApplying Deep Learning on Satellite Imagery Classification\nMineral Prediction Mapping with Machine Learning\nGeospatial Machine Learning\nGeospatial Deep Learning\nIntroducing Machine Learning for Spatial Data Analysis\nSpatial Prediction using ML in Python\nTree-Boosting for Spatial Data\nWorking with Geospatial Data in Machine Learning\nHow to Extract Locations from Text with Natural Language Processing\nGeoparsing with Python and Natural Language Processing\nGeographic Data Science 8 video tutorials on spatial and spatiotemporal data in Python\nGeographic Data Science with PySAL and the pydata stack\nThe Rise of Machine Learning (ML): How to Use Artificial Intelligence in GIS\nA Guide: Turning OpenStreetMap Location Data into ML Features\nLatest in Geospatial Data Science Developments\nTrain & Deploy Geospatial Deep Learning Application in Python\nUse Google Colab Like A Pro\nUnderstanding Satellite Image For Geo-spatial Deep Learning\nLand Cover Classification\nHow to Perform Exploratory Data Analysis in QGis\nDeep learning for Geospatial data applications — Multi-label Classification\nIndexing and querying spatial data\nMachine Learning of Spatial Data\nSpatial Data Analysis With Hexagonal Grids\nRICE MAPPING USING DEEP NEURAL NETWORKS\nLand Cover and Land Use Classification\nAll Machine Learning Algorithms You Should Know for 2023\nExploring Time and Space\nArtificial Intelligence for Geospatial Analysis with Pytorch’s TorchGeo (Part 1)\nTorchGeo: datasets, samplers, transforms, and pre-trained models for geospatial data.\nGeospatial Machine Learning\nPEARL: Land Cover Mapping\nLand Cover Classification\nDetecting deforestation from satellite images\nSpatial Autocorrelation: Neighbors Affecting Neighbors\nAn Artificial Intelligence Dataset for Solar Energy Locations in India -Techniques for deep learning with satellite & aerial imagery\nSpatial Regression\nGeospatial-learn\nA Guide: Turning OpenStreetMap Location Data into ML Features\nWorkflow Machine Learning on Satellite Image and Geospatial Data Using Pyspatialml\nAutoGluon: AutoML for Text, Image, Time Series, and Tabular Data\nEnhancement of MODIS NIDVI to 10m resolution using U-Net\nS1S2randomforest\nGeopandas Hands-on: Building Geospatial Machine Learning Pipeline\nApplying Deep Learning on Satellite Imagery Classification\nMachine Learning of Spatial Data — A Critical Review\nAI Geospatial Wildfire Risk Prediction\nMachine learning in earth sciences"
+  },
+  {
+    "objectID": "posts/data_science/2023-02-08-Geospatial_ML_DL.html#papers",
+    "href": "posts/data_science/2023-02-08-Geospatial_ML_DL.html#papers",
+    "title": "GepSpatial ML-DL Sources",
+    "section": "Papers",
+    "text": "Papers\n\nA novel framework for spatio-temporal prediction of environmental data using deep learning\nSpatial machine learning: new opportunities for regional science\nExploring Google Earth Engine Platform for Big Data Processing: Classification of Multi-Temporal Satellite Imagery for Crop Mapping\nGeographic Data Science with Python\nExploratory Spatial Data Analysis with Python\nHow to use GIS for Machine Learning\nDynamic population mapping with AutoGluon"
+  },
+  {
+    "objectID": "posts/data_science/2023-02-08-Geospatial_ML_DL.html#exploratory-spatial-data-analysis-esda",
+    "href": "posts/data_science/2023-02-08-Geospatial_ML_DL.html#exploratory-spatial-data-analysis-esda",
+    "title": "GepSpatial ML-DL Sources",
+    "section": "Exploratory Spatial Data Analysis (ESDA)",
+    "text": "Exploratory Spatial Data Analysis (ESDA)\n\nExploratory Data Analysis (EDA) on Satellite Imagery Using EarthPy\nWhat is Exploratory Spatial Data Analysis (ESDA)?\nESDA: Exploratory Spatial Data Analysis\nExploratory Spatial Data Analysis\nExploratory Spatial Data Analysis (ESDA) – Spatial Autocorrelation\nexploratory data analysis\nExploratory Spatial Data Analysis (ESDA)\nGeoDa: An introduction to spatial data analysis\nESDA with pygeoda and geopandas\nExploratory Spatial Data Analysis (ESDA)"
+  },
+  {
+    "objectID": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#climate-data",
+    "href": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#climate-data",
+    "title": "Geospatial Data Address",
+    "section": "Climate data",
+    "text": "Climate data\n\nWorldclim\nAnnual average climate data\nClimate charts\nGlobal Historical Climatology Network Monthly\nClimate Data Online Search ***\nClimate Scenario Data from the Rossby Centre\nUpperair Air Data\nMerra 2\nCopernicus\nEumetsat\nGlobal Surface Summary of the Day - GSOD ***\nIntegrated Surface Dataset (Global) ***\nNOAA Climate Data\nSurface Data Hourly Global\nNOAA Dataset Search\nIndex of 1 2\nFree access to NCEI’s archive of global coastal, oceanographic, geophysical, climate, and historical weather data ***\nRenewable point data\nESA climate office or\nTemperature and Precipitation data 1, 2, 3\nClimate Data Online: Dataset Discovery"
+  },
+  {
+    "objectID": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#articles",
+    "href": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#articles",
+    "title": "Geospatial Data Address",
+    "section": "Articles",
+    "text": "Articles\n\nAccessing and Downloading Training Data on the Radiant MLHub API\nHow to get started with GRIB2 Weather Data and Python"
+  },
+  {
+    "objectID": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#gee",
+    "href": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#gee",
+    "title": "GIS & RS learning and notes",
+    "section": "GEE",
+    "text": "GEE\n\nqgis-earthengine-examples\nRemote Sensing\nLand Cover Classification"
+  },
+  {
+    "objectID": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#articles",
+    "href": "posts/geospatial/2021-07-03-Learning-GIS-RS.html#articles",
+    "title": "GIS & RS learning and notes",
+    "section": "Articles",
+    "text": "Articles\n\nWhat Is NetCDF Data and Why Is It Interesting?\nVisualization in Python —Visualizing Geospatial Data\nDetecting deforestation from satellite images -How to get started with GRIB2 Weather Data and Python\nSpatial Data Science: Spatial Data Storage\nAll open source Python GIS and Earth Observation libraries\nGeoWombat: Utilities for geospatial data\nExploring Google Earth Engine Platform for Big Data Processing: Classification of Multi-Temporal Satellite Imagery for Crop Mapping\nMapping Fires using Google Earth Engine and Python"
   }
 ]
