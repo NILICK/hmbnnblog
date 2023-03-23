@@ -17,7 +17,7 @@ website:
     style: floating
     contents:
       - auto: "/*.ipynb"
-      - section: Geospatial
+      - section: Geospatialaa
         contents: posts/geospatial/*
       - section: Explanations
         contents: posts/explanations/*
