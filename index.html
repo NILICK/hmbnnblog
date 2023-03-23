@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Envinformatics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./hmbnnblog-logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="">
+<meta property="og:site-name" content="Envinformatics">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Envinformatics</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="dropdown-header">
+ <span class="menu-text">Index</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Geospatial</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/geospatial/2021-03-25-address_urls_geodatabase.html" class="sidebar-item-text sidebar-link">Geospatial Data Address</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/geospatial/2021-07-03-Learning-GIS-RS.html" class="sidebar-item-text sidebar-link">GIS &amp; RS learning and notes</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Explanations</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/explanations/2021-03-01_create_blog.html" class="sidebar-item-text sidebar-link">Blogging with Quarto</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/explanations/2021-06-07-My-Notes-Jupyterlab.html" class="sidebar-item-text sidebar-link">Jupyterlab</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/explanations/2021-07-02-ML-Resources.html" class="sidebar-item-text sidebar-link">ML-DL Resources</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/explanations/2022-09-30-My-Notes-Ubuntu.html" class="sidebar-item-text sidebar-link">Ubuntu</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Analysis Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html" class="sidebar-item-text sidebar-link">Analysis process of downscaled MERRA-2 data</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Data Science</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/data_science/2023-02-08-Geospatial_ML_DL.html" class="sidebar-item-text sidebar-link">GepSpatial ML-DL Sources</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/data_science/2022-11-11-Scraping_AQI.html" class="sidebar-item-text sidebar-link">Scraping AQI</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/data_science/2023-03-23-TopoPyScale.html" class="sidebar-item-text sidebar-link">TopoPyScale</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(11)</span></div><div class="category" data-category="Climate">Climate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="DL">DL <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Downscale">Downscale <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Downscaling">Downscaling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GeoSpatial">GeoSpatial <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Geospatial">Geospatial <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Jupyterlab">Jupyterlab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="LDT">LDT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="MERRA-2">MERRA-2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ML">ML <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Nbdev">Nbdev <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Notes">Notes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Scraping">Scraping <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ubuntu">Ubuntu <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Weblog">Weblog <span class="quarto-category-count">(1)</span></div></div></div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1675938278942" data-listing-reading-time-sort="0.01">
+<div class="thumbnail">
+<a href="./posts/scientific_research/Untitled.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/scientific_research/Untitled.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/scientific_research/Untitled.html">
+<h3 class="no-anchor listing-title">
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<!-- desc(5A0113B34292)[max=175]:posts/scientific_research/Untitled.html -->
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/scientific_research/Untitled.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="GeoSpatial,Downscale,Climate" data-listing-date-sort="1679513400000" data-listing-file-modified-sort="1679559048670" data-listing-reading-time-sort="6.015">
+<div class="thumbnail">
+<p><a href="./posts/data_science/2023-03-23-TopoPyScale.html"> <img src="./posts/data_science/images/downscale.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/data_science/2023-03-23-TopoPyScale.html">
+<h3 class="no-anchor listing-title">
+TopoPyScale
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('GeoSpatial'); return false;">
+GeoSpatial
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Downscale'); return false;">
+Downscale
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Climate'); return false;">
+Climate
+</div>
+</div>
+<a href="./posts/data_science/2023-03-23-TopoPyScale.html">
+<div class="listing-description">
+<p>Downscaling climate data based on topography.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/data_science/2023-03-23-TopoPyScale.html">
+<div class="listing-date">
+Mar 23, 2023
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="GeoSpatial,ML,DL" data-listing-date-sort="1675801800000" data-listing-file-modified-sort="1679552366352" data-listing-reading-time-sort="4.03">
+<div class="thumbnail">
+<p><a href="./posts/data_science/2023-02-08-Geospatial_ML_DL.html"> <img src="./posts/data_science/images/ML_Spatial.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/data_science/2023-02-08-Geospatial_ML_DL.html">
+<h3 class="no-anchor listing-title">
+GepSpatial ML-DL Sources
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('GeoSpatial'); return false;">
+GeoSpatial
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
+ML
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('DL'); return false;">
+DL
+</div>
+</div>
+<a href="./posts/data_science/2023-02-08-Geospatial_ML_DL.html">
+<div class="listing-description">
+<p>Web Resources for GeoSpatial Machine Learning and Deep Learning.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/data_science/2023-02-08-Geospatial_ML_DL.html">
+<div class="listing-date">
+Feb 8, 2023
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Scraping,ML" data-listing-date-sort="1668112200000" data-listing-file-modified-sort="1675877978893" data-listing-reading-time-sort="0.52">
+<div class="thumbnail">
+<p><a href="./posts/data_science/2022-11-11-Scraping_AQI.html"> <img src="./posts/data_science/images/aqilogo.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/data_science/2022-11-11-Scraping_AQI.html">
+<h3 class="no-anchor listing-title">
+Scraping AQI
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Scraping'); return false;">
+Scraping
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
+ML
+</div>
+</div>
+<a href="./posts/data_science/2022-11-11-Scraping_AQI.html">
+<div class="listing-description">
+<p>Extracting AQI data from web for data sciences analysis.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/data_science/2022-11-11-Scraping_AQI.html">
+<div class="listing-date">
+Nov 11, 2022
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Ubuntu,Notes" data-listing-date-sort="1664483400000" data-listing-file-modified-sort="1668142139035" data-listing-reading-time-sort="1.455">
+<div class="thumbnail">
+<p><a href="./posts/explanations/2022-09-30-My-Notes-Ubuntu.html"> <img src="./posts/explanations/images/ubuntu.webp" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/explanations/2022-09-30-My-Notes-Ubuntu.html">
+<h3 class="no-anchor listing-title">
+Ubuntu
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Ubuntu'); return false;">
+Ubuntu
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Notes'); return false;">
+Notes
+</div>
+</div>
+<a href="./posts/explanations/2022-09-30-My-Notes-Ubuntu.html">
+<div class="listing-description">
+<p>My notes in Ubuntu working</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/explanations/2022-09-30-My-Notes-Ubuntu.html">
+<div class="listing-date">
+Sep 30, 2022
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Downscaling,MERRA-2,LDT" data-listing-date-sort="1629055800000" data-listing-file-modified-sort="1668336267169" data-listing-reading-time-sort="8.32">
+<div class="thumbnail">
+<p><a href="./posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html"> <img src="./posts/analysis_methods/images/merra2.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html">
+<h3 class="no-anchor listing-title">
+Analysis process of downscaled MERRA-2 data
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Downscaling'); return false;">
+Downscaling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('MERRA-2'); return false;">
+MERRA-2
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('LDT'); return false;">
+LDT
+</div>
+</div>
+<a href="./posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html">
+<div class="listing-description">
+<p>This post is about create own your blog with free resources in Github.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html">
+<div class="listing-date">
+Aug 16, 2021
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Weblog,Quarto,Nbdev" data-listing-date-sort="1614544200000" data-listing-file-modified-sort="1668106331487" data-listing-reading-time-sort="1.28">
+<div class="thumbnail">
+<p><a href="./posts/explanations/2021-03-01_create_blog.html"> <img src="./posts/explanations/images/Jupyter-Notebook-Quarto.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/explanations/2021-03-01_create_blog.html">
+<h3 class="no-anchor listing-title">
+Blogging with Quarto
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Weblog'); return false;">
+Weblog
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
+Quarto
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Nbdev'); return false;">
+Nbdev
+</div>
+</div>
+<a href="./posts/explanations/2021-03-01_create_blog.html">
+<div class="listing-description">
+<p>Creating weblog in combination of Jupyterlab and Quarto</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/explanations/2021-03-01_create_blog.html">
+<div class="listing-date">
+Mar 1, 2021
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Jupyterlab" data-listing-date-sort="NaN" data-listing-file-modified-sort="1676007624273" data-listing-reading-time-sort="7.275">
+<div class="thumbnail">
+<p><a href="./posts/explanations/2021-06-07-My-Notes-Jupyterlab.html"> <img src="./posts/explanations/images/jupyterlab.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/explanations/2021-06-07-My-Notes-Jupyterlab.html">
+<h3 class="no-anchor listing-title">
+Jupyterlab
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Jupyterlab'); return false;">
+Jupyterlab
+</div>
+</div>
+<a href="./posts/explanations/2021-06-07-My-Notes-Jupyterlab.html">
+<div class="listing-description">
+<p>My notes in Jupyterlab working</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/explanations/2021-06-07-My-Notes-Jupyterlab.html">
+<div class="listing-date">
+Invalid Date
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Geospatial" data-listing-date-sort="1625254200000" data-listing-file-modified-sort="1676007620694" data-listing-reading-time-sort="1.215">
+<div class="thumbnail">
+<p><a href="./posts/geospatial/2021-07-03-Learning-GIS-RS.html"> <img src="./posts/geospatial/images/GIS_RS.webp" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/geospatial/2021-07-03-Learning-GIS-RS.html">
+<h3 class="no-anchor listing-title">
+GIS &amp; RS learning and notes
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Geospatial'); return false;">
+Geospatial
+</div>
+</div>
+<a href="./posts/geospatial/2021-07-03-Learning-GIS-RS.html">
+<div class="listing-description">
+<p>This post is about GIS and Remote Sensing learning and keynotes of them.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/geospatial/2021-07-03-Learning-GIS-RS.html">
+<div class="listing-date">
+Jul 3, 2021
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="ML,DL" data-listing-date-sort="1625167800000" data-listing-file-modified-sort="1676618566410" data-listing-reading-time-sort="0.455">
+<div class="thumbnail">
+<p><a href="./posts/explanations/2021-07-02-ML-Resources.html"> <img src="./posts/explanations/images/AI_ML_DL.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/explanations/2021-07-02-ML-Resources.html">
+<h3 class="no-anchor listing-title">
+ML-DL Resources
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
+ML
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('DL'); return false;">
+DL
+</div>
+</div>
+<a href="./posts/explanations/2021-07-02-ML-Resources.html">
+<div class="listing-description">
+<p>This post is about resources for machine learning and deep learning from web.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/explanations/2021-07-02-ML-Resources.html">
+<div class="listing-date">
+Jul 2, 2021
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="Geospatial" data-listing-date-sort="1616614200000" data-listing-file-modified-sort="1676007622537" data-listing-reading-time-sort="3.12">
+<div class="thumbnail">
+<p><a href="./posts/geospatial/2021-03-25-address_urls_geodatabase.html"> <img src="./posts/geospatial/images/geospatial.jpeg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/geospatial/2021-03-25-address_urls_geodatabase.html">
+<h3 class="no-anchor listing-title">
+Geospatial Data Address
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Geospatial'); return false;">
+Geospatial
+</div>
+</div>
+<a href="./posts/geospatial/2021-03-25-address_urls_geodatabase.html">
+<div class="listing-description">
+<p>URLs for geospatial data, always in custructing!</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/geospatial/2021-03-25-address_urls_geodatabase.html">
+<div class="listing-date">
+Mar 25, 2021
+</div>
+<div class="listing-author">
+Me
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
