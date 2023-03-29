@@ -288,6 +288,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#very-important-note" id="toc-very-important-note" class="nav-link" data-scroll-target="#very-important-note">Very Important Note:</a>
+  <ul>
+  <li><a href="#to-run-topopyscale-you-must-in-python-3.9-environment." id="toc-to-run-topopyscale-you-must-in-python-3.9-environment." class="nav-link" data-scroll-target="#to-run-topopyscale-you-must-in-python-3.9-environment.">To run TopoPyScale you must in python 3.9 environment.</a></li>
   <li><a href="#python-environment-preparation" id="toc-python-environment-preparation" class="nav-link" data-scroll-target="#python-environment-preparation">1- Python Environment Preparation</a></li>
   <li><a href="#release-installation" id="toc-release-installation" class="nav-link" data-scroll-target="#release-installation">2- Release Installation</a></li>
   <li><a href="#setting-up-cdsapi" id="toc-setting-up-cdsapi" class="nav-link" data-scroll-target="#setting-up-cdsapi">3- Setting up <code>cdsapi</code></a>
@@ -304,6 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#saving-reult-to-netcdf-file" id="toc-saving-reult-to-netcdf-file" class="nav-link" data-scroll-target="#saving-reult-to-netcdf-file">9- Saving reult to netcdf file</a></li>
   <li><a href="#extract-temperature-from-dataframe" id="toc-extract-temperature-from-dataframe" class="nav-link" data-scroll-target="#extract-temperature-from-dataframe">10- Extract <code>Temperature</code> from dataframe</a></li>
   <li><a href="#save-a-variable-to-geotif-file" id="toc-save-a-variable-to-geotif-file" class="nav-link" data-scroll-target="#save-a-variable-to-geotif-file">11- Save a variable to geotif file</a></li>
+  </ul></li>
   <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
   </ul>
 </nav>
@@ -366,6 +370,11 @@ Surface incoming shortwave radiation
 Surface incoming longwave radiation
 Precipitation (possibility to partition snow and rain)</code></pre>
 <p>In the following, you can done downscaling climate data step-by-step.</p>
+</section>
+<section id="very-important-note" class="level2">
+<h2 class="anchored" data-anchor-id="very-important-note">Very Important Note:</h2>
+<section id="to-run-topopyscale-you-must-in-python-3.9-environment." class="level3">
+<h3 class="anchored" data-anchor-id="to-run-topopyscale-you-must-in-python-3.9-environment.">To run TopoPyScale you must in python 3.9 environment.</h3>
 </section>
 <section id="python-environment-preparation" class="level3">
 <h3 class="anchored" data-anchor-id="python-environment-preparation">1- Python Environment Preparation</h3>
@@ -648,6 +657,7 @@ outputs:
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save the GeoTIFF file: </span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>bT.rio.to_raster(<span class="vs">r"temp_raster.tiff"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 </section>
 <section id="note" class="level2">
 <h2 class="anchored" data-anchor-id="note">Note:</h2>
