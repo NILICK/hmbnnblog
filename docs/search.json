@@ -361,7 +361,7 @@
     "href": "posts/geospatial/2021-03-25-address_urls_geodatabase.html",
     "title": "Geospatial Data Address",
     "section": "",
-    "text": "Soilgrids\nHarmonized World Soils Database 1KM\nopengeohub\nEarth Observing Dashboard\nData Collections\nForest Fires Data Set"
+    "text": "NDVI SPOT\nOdiac Dataset\nOdiac - the most beautiful global map of human-made CO2 emissions\nSoilgrids\nHarmonized World Soils Database 1KM\nopengeohub\nEarth Observing Dashboard\nData Collections\nForest Fires Data Set"
   },
   {
     "objectID": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#climate-data",
@@ -396,7 +396,7 @@
     "href": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#terrian",
     "title": "Geospatial Data Address",
     "section": "Terrian",
-    "text": "Terrian\n\nThe Global Multi-Resolution Topography (GMRT) Synthesis, Bathymetry and Dem\nOpenTopography High-Resolution Topography Data and Tools\nSRTM data\nACE2 (Altimeter Corrected Elevations) DEM is a global DEM at 3” (approx 90m at the equator), 9”, 30’ (approx 1km at the equator) and 5’ resolution\nACE - Altimeter Corrected Elevations\nDSM ALOS Global Digital Surface Model “ALOS World 3D - 30m\nDTM FABDEM\nDSM and DTM can be used in 3D building in QGIS with Mapflow plugin"
+    "text": "Terrian\n\nDem 1km\nlpdaac.usgs.gov\nThe Global Multi-Resolution Topography (GMRT) Synthesis, Bathymetry and Dem\nOpenTopography High-Resolution Topography Data and Tools\nSRTM data\nACE2 (Altimeter Corrected Elevations) DEM is a global DEM at 3” (approx 90m at the equator), 9”, 30’ (approx 1km at the equator) and 5’ resolution\nACE - Altimeter Corrected Elevations\nDSM ALOS Global Digital Surface Model “ALOS World 3D - 30m\nDTM FABDEM\nDSM and DTM can be used in 3D building in QGIS with Mapflow plugin"
   },
   {
     "objectID": "posts/geospatial/2021-03-25-address_urls_geodatabase.html#hydrology",
