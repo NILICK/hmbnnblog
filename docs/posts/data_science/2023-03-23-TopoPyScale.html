@@ -309,6 +309,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#save-a-variable-to-geotif-file" id="toc-save-a-variable-to-geotif-file" class="nav-link" data-scroll-target="#save-a-variable-to-geotif-file">11- Save a variable to geotif file</a></li>
   </ul></li>
   <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
+  <li><a href="#run-topopyscale-in-colab" id="toc-run-topopyscale-in-colab" class="nav-link" data-scroll-target="#run-topopyscale-in-colab">Run TopoPyScale in Colab</a>
+  <ul>
+  <li><a href="#mount-the-google-drive" id="toc-mount-the-google-drive" class="nav-link" data-scroll-target="#mount-the-google-drive">Mount the google drive</a></li>
+  <li><a href="#create-a-virtual-environment-using-virtualenv-library" id="toc-create-a-virtual-environment-using-virtualenv-library" class="nav-link" data-scroll-target="#create-a-virtual-environment-using-virtualenv-library">Create a virtual environment using virtualenv library</a></li>
+  <li><a href="#activate-the-environment" id="toc-activate-the-environment" class="nav-link" data-scroll-target="#activate-the-environment">Activate the environment</a></li>
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install Packages</a></li>
+  <li><a href="#test-package" id="toc-test-package" class="nav-link" data-scroll-target="#test-package">Test Package</a></li>
+  <li><a href="#setting-up-cdsapi-1" id="toc-setting-up-cdsapi-1" class="nav-link" data-scroll-target="#setting-up-cdsapi-1">Setting up cdsapi</a></li>
+  <li><a href="#running-topopyscale-in-colab" id="toc-running-topopyscale-in-colab" class="nav-link" data-scroll-target="#running-topopyscale-in-colab">Running TopoPyScale in Colab</a></li>
+  <li><a href="#local-google-drive" id="toc-local-google-drive" class="nav-link" data-scroll-target="#local-google-drive">Local Google Drive</a>
+  <ul>
+  <li><a href="#access-google-drive-using-graphical-user-interface" id="toc-access-google-drive-using-graphical-user-interface" class="nav-link" data-scroll-target="#access-google-drive-using-graphical-user-interface">Access Google Drive Using Graphical-User-Interface</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -662,8 +676,104 @@ outputs:
 <section id="note" class="level2">
 <h2 class="anchored" data-anchor-id="note">Note:</h2>
 <p>It is possible to improve accuracy by determining</p>
+</section>
+<section id="run-topopyscale-in-colab" class="level1">
+<h1>Run TopoPyScale in Colab</h1>
+<p>Using TopoPyScale for downlading ERA-5 data seems be more difficult without VPN, in other hand connecting to VPN is not simple in my country, so after searching to find suitable method to running ToPoPyScale and downloading ERA-5 data without VPN, I found that the <code>Colab</code> is a good choice for this problem. In the following I tried to explain step-by-step in using TopoPyScale in Colab and then download data from google drive to local drive.</p>
+<p>Open a new notebook in <code>https://colab.research.google.com/</code>. I used <code>nilick.gitcolab@gmail.com</code> account for this purpose.</p>
+<section id="mount-the-google-drive" class="level3">
+<h3 class="anchored" data-anchor-id="mount-the-google-drive">Mount the google drive</h3>
+<p>some guides is from: https://netraneupane.medium.com/how-to-install-libraries-permanently-in-google-colab-fb15a585d8a5</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">"/content/drive"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-a-virtual-environment-using-virtualenv-library" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-virtual-environment-using-virtualenv-library">Create a virtual environment using virtualenv library</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install virtualenv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>virtualenv <span class="op">/</span>content<span class="op">/</span>drive<span class="op">/</span>MyDrive<span class="op">/</span>colab_env</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="activate-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="activate-the-environment">Activate the environment</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>source <span class="op">/</span>content<span class="op">/</span>drive<span class="op">/</span>MyDrive<span class="op">/</span>colab_env<span class="op">/</span><span class="bu">bin</span><span class="op">/</span>activate<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="install-packages" class="level3">
+<h3 class="anchored" data-anchor-id="install-packages">Install Packages</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install xarray matplotlib scikit<span class="op">-</span>learn pandas numpy netcdf4 h5netcdf rasterio pyproj dask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install topopyscale</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="test-package" class="level3">
+<h3 class="anchored" data-anchor-id="test-package">Test Package</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> TopoPyScale <span class="im">import</span> topoclass <span class="im">as</span> tc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="setting-up-cdsapi-1" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-cdsapi-1">Setting up cdsapi</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'url: https://cds.climate.copernicus.eu/api/v2'</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>key <span class="op">=</span> <span class="st">'key: 2609:a8a3aba4-af46-4f7a-a79b-5799b58def50'</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'/root/.cdsapirc'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>.join([url, key]))</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'/root/.cdsapirc'</span>) <span class="im">as</span> f:</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(f.read())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install cdsapi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">"/content/drive/MyDrive/colab_env/lib/python3.9/site-packages"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="running-topopyscale-in-colab" class="level3">
+<h3 class="anchored" data-anchor-id="running-topopyscale-in-colab">Running TopoPyScale in Colab</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optimize Number of Clusters</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> TopoPyScale <span class="im">import</span> topoclass <span class="im">as</span> tc</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>config_file <span class="op">=</span> <span class="st">'/content/drive/MyDrive/topopyscale_run/config.yml'</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>mp <span class="op">=</span> tc.Topoclass(config_file)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>mp.compute_dem_param()</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co">#df = mp.search_optimum_number_of_clusters(cluster_range=np.arange(100,1000,50),plot=False)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="local-google-drive" class="level3">
+<h3 class="anchored" data-anchor-id="local-google-drive">Local Google Drive</h3>
+<p>After running topopyscale in colab successfully, ERA-5 data are stored in google drive that these files must be transfer to local drive. One easy way for do this is using local google drive.</p>
+<section id="access-google-drive-using-graphical-user-interface" class="level4">
+<h4 class="anchored" data-anchor-id="access-google-drive-using-graphical-user-interface">Access Google Drive Using Graphical-User-Interface</h4>
+<p><strong>Step 1: Open the settings</strong></p>
+<p>To open the settings, go to the“Applications” and search the “Settings” in the search bar:</p>
+<p><strong>Step 2: Select online accounts</strong></p>
+<p>When the settings open, it will show the following interface. Now, select “Online Accounts”</p>
+<p><strong>Step 3: Choose Google</strong></p>
+<p>From the following window, choose“Google”</p>
+<p><strong>Step 4: Allow for Gnome Trust</strong></p>
+<p>After Enter the email &amp; password you should allow Gnome trust to continue with google drive. For this purpose, click on the “Allow” button</p>
+<p><strong>Step 5: Sync Applications</strong></p>
+<p>To sync the application with Google drive, choose the items that google drive will be used for</p>
+<p><strong>Step 6: Using local Google drive</strong></p>
+<p>open the <code>Home</code> directory and in left side open <code>Network</code> and then click on your google account to accessing your files.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
