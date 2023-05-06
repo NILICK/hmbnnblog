@@ -302,6 +302,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#create-your-project-directory" id="toc-create-your-project-directory" class="nav-link" data-scroll-target="#create-your-project-directory">4- Create your project directory</a></li>
   <li><a href="#create-config-file" id="toc-create-config-file" class="nav-link" data-scroll-target="#create-config-file">5- Create Config file</a></li>
   <li><a href="#run-codes" id="toc-run-codes" class="nav-link" data-scroll-target="#run-codes">6- Run codes</a></li>
+  </ul></li>
+  <li><a href="#important-note" id="toc-important-note" class="nav-link" data-scroll-target="#important-note">Important Note:</a>
+  <ul>
   <li><a href="#convert-hourly-to-yearly-data" id="toc-convert-hourly-to-yearly-data" class="nav-link" data-scroll-target="#convert-hourly-to-yearly-data">7- Convert <code>Hourly</code> to <code>Yearly</code> data</a></li>
   <li><a href="#adding-coordinate-dimention-to-results" id="toc-adding-coordinate-dimention-to-results" class="nav-link" data-scroll-target="#adding-coordinate-dimention-to-results">8- Adding Coordinate dimention to results</a></li>
   <li><a href="#saving-reult-to-netcdf-file" id="toc-saving-reult-to-netcdf-file" class="nav-link" data-scroll-target="#saving-reult-to-netcdf-file">9- Saving reult to netcdf file</a></li>
@@ -323,6 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#access-google-drive-using-graphical-user-interface" id="toc-access-google-drive-using-graphical-user-interface" class="nav-link" data-scroll-target="#access-google-drive-using-graphical-user-interface">Access Google Drive Using Graphical-User-Interface</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#downscaling-for-large-area-and-big-data" id="toc-downscaling-for-large-area-and-big-data" class="nav-link" data-scroll-target="#downscaling-for-large-area-and-big-data">Downscaling for large area and big data</a></li>
   </ul>
 </nav>
     </div>
@@ -555,6 +559,11 @@ outputs:
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>mp.compute_solar_geometry()</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mp.compute_horizon()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+</section>
+<section id="important-note" class="level2">
+<h2 class="anchored" data-anchor-id="important-note">Important Note:</h2>
+<p>In input folder only <code>surf</code> and <code>PLEV</code> files must be coresponding to <code>start date</code> and <code>end date</code> in config file, otherwise below code encounter with <code>memory error</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========= STEP 4 ==========</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the downscaling</span></span>
@@ -565,7 +574,6 @@ outputs:
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Export output to desired format</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>mp.to_netcdf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 <section id="convert-hourly-to-yearly-data" class="level3">
 <h3 class="anchored" data-anchor-id="convert-hourly-to-yearly-data">7- Convert <code>Hourly</code> to <code>Yearly</code> data</h3>
 <div class="cell">
@@ -770,10 +778,62 @@ outputs:
 <p>To sync the application with Google drive, choose the items that google drive will be used for</p>
 <p><strong>Step 6: Using local Google drive</strong></p>
 <p>open the <code>Home</code> directory and in left side open <code>Network</code> and then click on your google account to accessing your files.</p>
-
-
 </section>
 </section>
+</section>
+<section id="downscaling-for-large-area-and-big-data" class="level1">
+<h1>Downscaling for large area and big data</h1>
+<p>Netcdf file as the result of <code>Topopyscale</code> downscaling processing does not have <code>Latitude</code> and <code>Longitude</code> information and only has <code>point_id</code> data that is about cluster points id. Georeferencing the downscaled parameters is necessary for analysis and plotting. Fortunately, there is a file that has <code>Latitude</code> and <code>Longitude</code> data that was created during the downscaling process from <code>dem</code>. This file name is <code>ds_param</code>. In this file, we have a data variable name as <code>cluster_labels</code>. This data variable is the same as <code>point_id</code> in the downscaled file. Adding <code>cluster_labels</code> data to downscaled file can solve the georeferencing problem. Unfortunately, by adding this data when we want to save the new dataset as a new NetCDF file, it creates a huge file in size. For example for only one year hourly data such as 2000, doenscaled file size is ~35Mb but merged file size is ~3.5Gb! In <a href="https://stackoverflow.com/a/72116071/7717176">this URL</a> you can find the reason for this huge file creation.</p>
+<p>I tried to solve this problem by reducing data variables, changing data type, and using different chunk sizes, but this approach did not impact significantly the file size. Finally, I decided to use the downscaled file with <code>ds_param</code> simultaneously.</p>
+<p><strong>Note:</strong> In another prompet I tried use <code>Zarr</code> to save dataset but it build more larger than file than netcdf file.</p>
+<p>For this purpose, I wrote below function for future use.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> georef_down(downscaled_file, ds_param_file):</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Taking files</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    ds <span class="op">=</span> xr.open_dataset(downscaled_file, chunks<span class="op">=</span>{<span class="st">'time'</span>: <span class="dv">1000</span>})</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    ds_param <span class="op">=</span> xr.open_dataset(ds_param_file)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Merge Two Dataframe for adding (x,y)</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> dask.config.<span class="bu">set</span>(<span class="op">**</span>{<span class="st">'array.slicing.split_large_chunks'</span>: <span class="va">False</span>}):</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>        ds_new <span class="op">=</span> ds.sel(point_id<span class="op">=</span>ds_param.cluster_labels)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rename coordinate</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    ds_final <span class="op">=</span> ds_new.rename({<span class="st">'x'</span>: <span class="st">'Longitude'</span>,<span class="st">'y'</span>: <span class="st">'Latitude'</span>})</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    ds_final.Longitude.attrs[<span class="st">'units'</span>] <span class="op">=</span> <span class="st">'degrees_east'</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    ds_final.Latitude.attrs[<span class="st">'units'</span>] <span class="op">=</span> <span class="st">'degrees_north'</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Drop useless parameters</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>    ds_droped_coor <span class="op">=</span> ds_final.drop([<span class="st">'reference_time'</span>, <span class="st">'point_id'</span>])</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    ds_droped_coor <span class="op">=</span> ds_final.drop([<span class="st">'reference_time'</span>, <span class="st">'point_id'</span>])</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    ds_droped_vars <span class="op">=</span> ds_droped_coor.drop_vars([<span class="st">'u'</span>, <span class="st">'v'</span>, <span class="st">'w'</span>, <span class="st">'cse'</span>,</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">'SW_diffuse'</span>, <span class="st">'cos_illumination'</span>,</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">'SW_direct'</span>])</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rechunk</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>    ds_rch <span class="op">=</span> ds_droped_vars.chunk(chunks<span class="op">=</span>{<span class="st">'Latitude'</span>: <span class="dv">200</span>, <span class="st">'Longitude'</span>: <span class="dv">250</span>,<span class="st">'time'</span>: <span class="dv">1024</span>})</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change dtypes</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>    ds_rch[<span class="st">"Latitude"</span>] <span class="op">=</span> ds_rch[<span class="st">"Latitude"</span>].astype(<span class="st">"float32"</span>)</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>    ds_rch[<span class="st">"Longitude"</span>] <span class="op">=</span> ds_rch[<span class="st">"Longitude"</span>].astype(<span class="st">"float32"</span>)</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>    variables <span class="op">=</span> <span class="bu">list</span>(ds_rch.keys())</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> var <span class="kw">in</span> variables:</span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>        ds_rch[var] <span class="op">=</span> ds_rch[var].astype(<span class="st">"float32"</span>)</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ds_rch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dask</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>downscaled_file <span class="op">=</span> <span class="st">"...........~/downsale_yearly/outputs/zagros_era5_dwns_1km_2000.nc"</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>ds_param_file <span class="op">=</span> <span class="st">"............~/downsale_yearly/outputs/ds_param.nc"</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>ds_2000 <span class="op">=</span> georef_down(downscaled_file, ds_param_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can use above code for downscaling hourly data for each year and then combine yearly doenscaled datasets in Xarray.</p>
+
+
 </section>
 
 </main> <!-- /main -->
