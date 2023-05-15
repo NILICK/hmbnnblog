@@ -831,7 +831,28 @@ outputs:
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>ds_param_file <span class="op">=</span> <span class="st">"............~/downsale_yearly/outputs/ds_param.nc"</span></span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>ds_2000 <span class="op">=</span> georef_down(downscaled_file, ds_param_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can use above code for downscaling hourly data for each year and then combine yearly doenscaled datasets in Xarray.</p>
+<p>You can use above code for downscaling hourly data for each year and then combine yearly dowscaled datasets in Xarray.<br> You can check the NetCDF file size for full dataset or for subset of dataset as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subsetting of dataset based on one data variable (Temperature)</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>ds_t <span class="op">=</span> ds.t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the size in megabytes</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>size_mb <span class="op">=</span> ds_t.nbytes <span class="op">/</span> (<span class="dv">1024</span> <span class="op">*</span> <span class="dv">1024</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Size of dataset: </span><span class="sc">{</span>size_mb<span class="sc">:.2f}</span><span class="ss"> MB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Size of dataset: 348533.31 MB</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the size in gigabytes</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>size_gb <span class="op">=</span> ds_t.nbytes <span class="op">/</span> (<span class="dv">1024</span> <span class="op">**</span> <span class="dv">3</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Size of dataset: </span><span class="sc">{</span>size_gb<span class="sc">:.2f}</span><span class="ss"> GB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Size of dataset: 340.36 GB</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ds_2000 <span class="op">=</span> ds_t.sel(time<span class="op">=</span><span class="bu">slice</span>(<span class="st">'2000-01-01'</span>, <span class="st">'2000-12-31'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Size of dataset: 14.83 GB</p>
+<p>It appears that we are facing a significant challenge in saving our dataset as NetCDF file(s). As you may recall, we have discussed the reasons for this challenge previously. In light of this, it seems that the optimal approach for utilizing the downscaled data is using it as a combined dataset that has already been explained.</p>
 
 
 </section>
