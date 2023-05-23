@@ -3,16 +3,17 @@
     "listing": "/index.html",
     "items": [
       "/posts/scientific_research/Untitled.html",
+      "/posts/chatgpt/2023-05-23-ChatGPT.html",
       "/posts/data_science/2023-03-23-TopoPyScale.html",
       "/posts/data_science/2023-02-08-Geospatial_ML_DL.html",
       "/posts/data_science/2022-11-11-Scraping_AQI.html",
       "/posts/explanations/2022-09-30-My-Notes-Ubuntu.html",
       "/posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html",
-      "/posts/explanations/2021-03-01_create_blog.html",
-      "/posts/explanations/2021-06-07-My-Notes-Jupyterlab.html",
       "/posts/geospatial/2021-07-03-Learning-GIS-RS.html",
       "/posts/explanations/2021-07-02-ML-Resources.html",
-      "/posts/geospatial/2021-03-25-address_urls_geodatabase.html"
+      "/posts/geospatial/2021-03-25-address_urls_geodatabase.html",
+      "/posts/explanations/2021-03-01_create_blog.html",
+      "/posts/explanations/2021-06-07-My-Notes-Jupyterlab.html"
     ]
   }
 ]
