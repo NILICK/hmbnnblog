@@ -4191,9 +4191,132 @@ Hello World! This is my first template.
 - Move it to your template folder (Ctrl M)
 - Create a note
 - Hit Ctrl P &amp; Select the template you just made</code></pre>
-<p><strong>9-6-</strong> <strong>Zotero Template</strong><br> Download “ZoteroNote” Template for Obsidian from <a href="https://github.com/NILICK/Obsidian_Templates/blob/main/ZoteroNote.md">this site</a>. <br> <strong>Note:</strong> You have to tell Obsidian what to import from Zotero and how to structure the new note that it will create, by default obsidian will import nothing. To do this, you provide Obsidian with a template. You also have to provide where your Obsidian vault files will be located.</p>
+<p><strong>9-6-</strong> <strong>Zotero Template</strong><br> Download “ZoteroNote” Template for Obsidian from <a href="https://forum.obsidian.md/t/zotero-integration-import-templates/36310/2">this site</a>. <br></p>
+<p>“ZoteroNote” Template:</p>
+<pre><code>---
+cssclass: literature-note
+alias: [{% if shortTitle %}&quot;{{shortTitle | safe}}&quot;{% else %}&quot;{{title | safe}}&quot;{% endif %}]
+---
+{%- macro colorValueToName(color) -%}
+    {%- switch color -%}
+        {%- case &quot;#ffff7f&quot; -%}
+            Relevant / important
+        {%- case &quot;#ff7f7f&quot; -%}
+            Disagree
+        {%- case &quot;#ffbf7f&quot; -%}
+            Questions / confusion
+        {%- case &quot;#7fff7f&quot; -%}
+            Agree
+        {%- case &quot;#7fffff&quot; -%}
+            Relevant to current task
+        {%- case &quot;#ff7fff&quot; -%}
+            TODO / follow up
+        {%- case &quot;#bf7fbf&quot; -%}
+            Definitions / concepts
+        {%- default -%}
+            Interesting but not relevant
+    {%- endswitch -%}
+{%- endmacro -%}
+
+{%- macro calloutHeader(type) -%}
+    {%- switch type -%}
+        {%- case &quot;highlight&quot; -%}
+            Highlight
+        {%- case &quot;strike&quot; -%}
+            Strikethrough
+        {%- case &quot;underline&quot; -%}
+            Underline
+        {%- case &quot;image&quot; -%}
+            Image
+        {%- default -%}
+            Note
+    {%- endswitch -%}
+{%- endmacro %}
+
+&gt; [!info]
+&gt; - **Cite Key:** [[@{{citekey}}]]
+{%- for attachment in attachments | filterby(&quot;path&quot;, &quot;endswith&quot;, &quot;.pdf&quot;) %}
+&gt; - **Link:** [{{attachment.title}}](file://{{attachment.path | replace(&quot; &quot;, &quot;%20&quot;)}})
+{%- endfor -%}
+{%- if abstractNote %}
+&gt; - **Abstract:** {{abstractNote}}
+{%- endif -%}
+{%- if bibliography %}
+&gt; - **Bibliography:** {{bibliography}}
+{%- endif %}
+{%- if hashTags %}
+&gt; - **Tags:** {{hashTags}}
+{%- endif %}
+
+## Annotations
+{% persist &quot;annotations&quot; %}
+{% set annots = annotations | filterby(&quot;date&quot;, &quot;dateafter&quot;, lastImportDate) -%}
+{% if annots.length &gt; 0 %}
+### Imported on {{importDate | format(&quot;YYYY-MM-DD h:mm a&quot;)}}
+
+{% for color, annots in annots | groupby(&quot;color&quot;) -%}
+#### {{colorValueToName(color)}}
+
+{% for annot in annots -%}
+&gt; [!quote{% if annot.color %}|{{annot.color}}{% endif %}] {{calloutHeader(annot.type)}}
+{%- if annot.annotatedText %}
+&gt; {{annot.annotatedText | nl2br}}
+{%- endif -%}
+{%- if annot.imageRelativePath %}
+&gt; ![[{{annot.imageRelativePath}}]]
+{%- endif %}
+{%- if annot.ocrText %}
+&gt; {{annot.ocrText}}
+{%- endif %}
+{%- if annot.comment %}
+&gt;
+&gt;&gt; {{annot.comment | nl2br}}
+{%- endif %}
+&gt;
+&gt; [Page {{annot.page}}](zotero://open-pdf/library/items/{{annot.attachment.itemKey}}?page={{annot.page}}) [[{{annot.date | format(&quot;YYYY-MM-DD#h:mm a&quot;)}}]]
+
+{% endfor -%}
+{% endfor -%}
+{% endif %}
+{% endpersist %}</code></pre>
+<p>CSS snippet to style callouts:</p>
+<pre><code>/* Yellow */
+.literature-note .callout[data-callout-metadata=&quot;#ffff7f&quot;] {
+  --callout-color: 255, 204, 0;
+}
+
+/* Red */
+.literature-note .callout[data-callout-metadata=&quot;#ff7f7f&quot;] {
+  --callout-color: 255, 59, 48;
+}
+
+/* Orange */
+.literature-note .callout[data-callout-metadata=&quot;#ffbf7f&quot;] {
+  --callout-color: 255, 149, 0;
+}
+
+/* Green */
+.literature-note .callout[data-callout-metadata=&quot;#7fff7f&quot;] {
+  --callout-color: 40, 205, 65;
+}
+
+/* Blue */
+.literature-note .callout[data-callout-metadata=&quot;#7fffff&quot;] {
+  --callout-color: 0, 122, 255;
+}
+
+/* Pink */
+.literature-note .callout[data-callout-metadata=&quot;#ff7fff&quot;] {
+  --callout-color: 255, 87, 255;
+}
+
+/* Purple */
+.literature-note .callout[data-callout-metadata=&quot;#bf7fbf&quot;] {
+  --callout-color: 125, 84, 222;
+}</code></pre>
+<p><strong>Note:</strong> You have to tell Obsidian what to import from Zotero and how to structure the new note that it will create, by default obsidian will import nothing. To do this, you provide Obsidian with a template. You also have to provide where your Obsidian vault files will be located.</p>
 <p>The template file has to be written in Nunjucks templating language. If you are familiar with this you can write your own template file. Otherwise, you can search the web for other users templates, but please be aware that the Zotero Integration plugin was previously named something else and used a different template system.</p>
-<p>You can also download template from <a href="https://github.com/NILICK/Obsidian_Templates/blob/main/ZoteroNote.md">this site</a> and use that. It is pretty basic, but I am sure if you give it some thought, you can adapt it to your liking. I personally find it cumbersome to edit templates in Obsidian and use another text editor (BBEdit) for this purpose, but that is up to you. Save the template file as a .md file somewhere in your vault.</p>
+<p>You can also download template from <a href="https://forum.obsidian.md/t/zotero-integration-import-templates/36310/2">this site</a> and use that. It is pretty basic, but I am sure if you give it some thought, you can adapt it to your liking. I personally find it cumbersome to edit templates in Obsidian and use another text editor (BBEdit) for this purpose, but that is up to you. Save the template file as a .md file somewhere in your vault.</p>
 <p><strong>10-</strong> In “import Formats” section of Zotero Integraion in Obsidian choose a name such as “Zotero Note”<br> <strong>11-</strong> Choose an output path for your future notes. This is how your new notes will be named and where in your vault they will be saved.</p>
 <p>In my study it must be “/Literature/{{citekey}}.md”</p>
 <p>The citekey variable i suitable since it will create an unique and readable name for each article/note. I have chosen to put my new notes in a folder named Zotero but if you prefer them at top level, just write {{citekey}}.md.<br> <strong>12-</strong> Choose where to save imported images and how to name them. such as “/Literature/images/{{citekey}}/” <br> <strong>13-</strong> Add the path to your template file, mine is called ZoteroNote.md and is located in folder called Templates which is located in Templates folder<br> It means that in “Template File” section type “ZoteroNote.md” and then select “Templates/ZoteroNote.md”.<br> <strong>14-</strong> Choose a bibliography style.<br></p>
