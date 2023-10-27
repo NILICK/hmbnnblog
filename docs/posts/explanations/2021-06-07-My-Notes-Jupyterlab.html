@@ -224,12 +224,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#micromamba" id="toc-micromamba" class="nav-link active" data-scroll-target="#micromamba">Micromamba</a>
-  <ul>
-  <li><a href="#mamba-initialize" id="toc-mamba-initialize" class="nav-link" data-scroll-target="#mamba-initialize">&gt;&gt;&gt; mamba initialize &gt;&gt;&gt;</a></li>
-  <li><a href="#contents-within-this-block-are-managed-by-mamba-init" id="toc-contents-within-this-block-are-managed-by-mamba-init" class="nav-link" data-scroll-target="#contents-within-this-block-are-managed-by-mamba-init">!! Contents within this block are managed by ‘mamba init’ !!</a></li>
-  <li><a href="#mamba-initialize-1" id="toc-mamba-initialize-1" class="nav-link" data-scroll-target="#mamba-initialize-1">&lt;&lt;&lt; mamba initialize &lt;&lt;&lt;</a></li>
-  </ul></li>
+  <li><a href="#micromamba" id="toc-micromamba" class="nav-link active" data-scroll-target="#micromamba">Micromamba</a></li>
   <li><a href="#githubs" id="toc-githubs" class="nav-link" data-scroll-target="#githubs">Githubs</a></li>
   <li><a href="#install-jupyterlab-app-desktop-updated-06152022" id="toc-install-jupyterlab-app-desktop-updated-06152022" class="nav-link" data-scroll-target="#install-jupyterlab-app-desktop-updated-06152022">Install Jupyterlab App Desktop (Updated 06/15/2022)</a>
   <ul>
@@ -328,33 +323,50 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="micromamba" class="level2">
 <h2 class="anchored" data-anchor-id="micromamba">Micromamba</h2>
-<p>Install: curl micro.mamba.pm/install.sh | bash</p>
-<p>-Check: micromamba –version</p>
-<p>-Help: micromamba –help</p>
-<p>-Create “.bashrc” file in home directory and paste below text:</p>
-<section id="mamba-initialize" class="level4">
-<h4 class="anchored" data-anchor-id="mamba-initialize">&gt;&gt;&gt; mamba initialize &gt;&gt;&gt;</h4>
-</section>
-<section id="contents-within-this-block-are-managed-by-mamba-init" class="level4">
-<h4 class="anchored" data-anchor-id="contents-within-this-block-are-managed-by-mamba-init">!! Contents within this block are managed by ‘mamba init’ !!</h4>
-<p>export MAMBA_EXE=“/home/nilik/.local/bin/micromamba”; export MAMBA_ROOT_PREFIX=“/home/nilik/micromamba”; __mamba_setup=“<span class="math inline">\(("\)</span>MAMBA_EXE” shell hook –shell bash –prefix “$MAMBA_ROOT_PREFIX” 2&gt; /dev/null)” if [ <span class="math inline">\(? -eq 0 ]; then  eval "\)</span>__mamba_setup” else if [ -f “/home/nilik/micromamba/etc/profile.d/micromamba.sh” ]; then . “/home/nilik/micromamba/etc/profile.d/micromamba.sh” else export PATH=“/home/nilik/micromamba/bin:$PATH” # extra space after export prevents interference from conda init fi fi unset __mamba_setup</p>
-</section>
-<section id="mamba-initialize-1" class="level4">
-<h4 class="anchored" data-anchor-id="mamba-initialize-1">&lt;&lt;&lt; mamba initialize &lt;&lt;&lt;</h4>
-<p>-For first time After installation and creating “.bashrc” file: ‘micromamba’ is running as a subprocess and can’t modify the parent shell. Thus you must initialize your shell before using activate and deactivate.</p>
-<pre><code>To initialize the current bash shell, run:
-    $ eval "$(micromamba shell hook --shell=bash)"
-and then activate or deactivate with:
-    $ micromamba activate</code></pre>
-<p>To automatically initialize all future (bash) shells, run: $ micromamba shell init –shell=bash –prefix=~/micromamba</p>
-<p>Supported shells are {bash, zsh, csh, xonsh, cmd.exe, powershell, fish}.</p>
-<p>-Automatically initialize all future (bash) shells micromamba shell init –shell=bash –prefix=~/micromamba</p>
-<p>-Restart Terminal, close and open again.</p>
-<p>-Create Virtual Environmnet: micromamba create -n <env-name></env-name></p>
-<p>-Check all available environmnets by running: micromamba env list</p>
-<p>-Activate environment: micromamba activate # this activates the base environment micromamba activate <env-name> # this activates the <env-name> environment</env-name></env-name></p>
-<p>-Install packages: micromamba install geemap -c conda-forge</p>
-</section>
+<p>Install:<br> curl micro.mamba.pm/install.sh | bash</p>
+<p>-Check:<br> micromamba –version</p>
+<p>-Help:<br> micromamba –help</p>
+<p>-Create “.bashrc” file in home directory and paste below text:<br></p>
+<pre><code>#### &gt;&gt;&gt; mamba initialize &gt;&gt;&gt;
+
+#### !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/home/nilik/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/nilik/micromamba";
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --prefix "$MAMBA_ROOT_PREFIX" 2&gt; /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/home/nilik/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "/home/nilik/micromamba/etc/profile.d/micromamba.sh"
+    else
+        export  PATH="/home/nilik/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
+    fi
+fi
+unset __mamba_setup
+
+#### &lt;&lt;&lt; mamba initialize &lt;&lt;&lt;</code></pre>
+<p>-For first time After installation and creating “.bashrc” file:<br></p>
+<p>‘micromamba’ is running as a subprocess and can’t modify the parent shell.<br></p>
+<p>Thus you must initialize your shell before using activate and deactivate.<br></p>
+<pre><code>    To initialize the current bash shell, run:
+        $ eval "$(micromamba shell hook --shell=bash)"
+    and then activate or deactivate with:
+        $ micromamba activate</code></pre>
+<p>To automatically initialize all future (bash) shells, run:<br></p>
+<pre><code>$ micromamba shell init --shell=bash --prefix=~/micromamba</code></pre>
+<p>Supported shells are {bash, zsh, csh, xonsh, cmd.exe, powershell, fish}.<br></p>
+<p>-Automatically initialize all future (bash) shells<br></p>
+<p>micromamba shell init –shell=bash –prefix=~/micromamba<br></p>
+<p>-Restart Terminal, close and open again.<br></p>
+<p>-Create Virtual Environmnet:<br></p>
+<p>micromamba create -n name<br></p>
+<p>-Check all available environmnets by running:<br></p>
+<p>micromamba env list<br></p>
+<p>-Activate environment:<br></p>
+<p>micromamba activate # this activates the base environment<br></p>
+<p>micromamba activate name # this activates the name environment<br></p>
+<p>-Install packages:<br></p>
+<p>micromamba install geemap -c conda-forge<br></p>
 </section>
 <section id="githubs" class="level2">
 <h2 class="anchored" data-anchor-id="githubs">Githubs</h2>
