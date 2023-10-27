@@ -23,6 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -62,6 +125,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -220,7 +286,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-from-doe.ir" id="toc-data-from-doe.ir" class="nav-link active" data-scroll-target="#data-from-doe.ir">1- Data from doe.ir</a></li>
+  <li><a href="#data-from-aqicn.org" id="toc-data-from-aqicn.org" class="nav-link" data-scroll-target="#data-from-aqicn.org">2- Data from aqicn.org</a></li>
+  <li><a href="#reading-json-file" id="toc-reading-json-file" class="nav-link" data-scroll-target="#reading-json-file">Reading JSON file</a></li>
+  <li><a href="#flattening-nested-list-from-json-object" id="toc-flattening-nested-list-from-json-object" class="nav-link" data-scroll-target="#flattening-nested-list-from-json-object">Flattening nested list from JSON object</a></li>
+  <li><a href="#spliting-station.name" id="toc-spliting-station.name" class="nav-link" data-scroll-target="#spliting-station.name">Spliting <code>station.name</code></a></li>
+  <li><a href="#mapping-stations" id="toc-mapping-stations" class="nav-link" data-scroll-target="#mapping-stations">Mapping Stations</a>
+  <ul>
+  <li><a href="#plotting-with-folium" id="toc-plotting-with-folium" class="nav-link" data-scroll-target="#plotting-with-folium"><em>Plotting with Folium</em></a></li>
+  </ul></li>
+  <li><a href="#convert-aqi-of-pm10-to-pm10-concentration" id="toc-convert-aqi-of-pm10-to-pm10-concentration" class="nav-link" data-scroll-target="#convert-aqi-of-pm10-to-pm10-concentration">Convert AQI of PM10 to PM10 Concentration</a></li>
+  <li><a href="#how-does-the-aqi-work" id="toc-how-does-the-aqi-work" class="nav-link" data-scroll-target="#how-does-the-aqi-work">How does the AQI work?</a></li>
+  <li><a href="#using-python-aqi-in-pandas" id="toc-using-python-aqi-in-pandas" class="nav-link" data-scroll-target="#using-python-aqi-in-pandas">Using <code>python-aqi</code> in pandas</a>
+  <ul>
+  <li><a href="#function-for-convert-aqi-to-concentration" id="toc-function-for-convert-aqi-to-concentration" class="nav-link" data-scroll-target="#function-for-convert-aqi-to-concentration">Function for convert AQI to Concentration</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -263,10 +349,1346 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>You can download AQI data using two methods:</p>
+<section id="data-from-doe.ir" class="level2">
+<h2 class="anchored" data-anchor-id="data-from-doe.ir">1- Data from doe.ir</h2>
 <p>Data available in <code>https://aqicn.org</code> is good for downloading all data, but this data in compartion of data available in <code>https://aqms.doe.ir/</code> site is incomplete and incorrect. So, because the latest site has <code>DOE</code> reference it is better to obtain data from this site. Downloading data from <code>https://aqms.doe.ir/</code> can be done in multi-steps as in following:</p>
 <p>1- Install chrome extension <code>Print Friendly &amp; PDF</code>.<br> 2- Open site in <code>English</code> language.<br> 3- Define <code>Date</code>.<br> 4- Export data as <code>PDF</code>.<br> 5- Convert pdf files to python <code>list</code> with <code>tabula-py</code> python library. 6- Convert list to <code>Pandas Dataframe</code>. 7- This data is <code>AQI</code> and must be converted to <code>Concenteartion</code>, for doing it we can use <a href="https://www.airnow.gov/aqi/aqi-calculator-concentration/">AQI Calculator</a>.</p>
+</section>
+<section id="data-from-aqicn.org" class="level2">
+<h2 class="anchored" data-anchor-id="data-from-aqicn.org">2- Data from aqicn.org</h2>
+<p>1- AQICN Token</p>
+<p>The first step is to make sure to acquire your own token for all API access.<br> You can get your token from the <a href="https://aqicn.org/data-platform/token/">data-platform token</a> page.</p>
+<p>2- Downloading Lat-Lon from <a href="https://aqicn.org/">www.aqicn.org</a><br></p>
+<p>Historical data downloaded manually from <a href="www.aqicn.org">aqicn</a> does not any information about <code>latitude</code> and <code>longitude</code> of each station. So, for obtaining this information we can use <a href="https://aqicn.org/json-api/doc/#api-Map_Queries-GetMapStations">API</a>.<br> There is a general code for getting information of stations based on boundary such as following:<br></p>
+<pre><code>/map/bounds?token=:token&amp;latlng=:latlng</code></pre>
+<p>We used the following code for obtaining the stations data (<code>name</code>, <code>lat</code>, <code>lon</code> and <code>uid</code>):<br></p>
+<pre><code>https://api.waqi.info/v2/map/bounds?latlng=11.88,25.74,42.57,63.45&amp;networks=all&amp;token=f8a5365329b83961a149e7e4ada3946b84a63528</code></pre>
+</section>
+<section id="reading-json-file" class="level2">
+<h2 class="anchored" data-anchor-id="reading-json-file">Reading JSON file</h2>
+<p>https://towardsdatascience.com/how-to-convert-json-into-a-pandas-dataframe-100b2ae1e0d8</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">'/mnt/864424144424098F/Anaconda_Projects/Air_Pollution_Projects/Middle_East_Prj/AQICN_Dataset/Lat_Long/'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_json(path <span class="op">+</span> <span class="st">'bounds_API.json'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>status</th>
+      <th>data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ok</td>
+      <td>{'lat': 32.243608, 'lon': 48.813886, 'uid': 11...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ok</td>
+      <td>{'lat': 35.034016, 'lon': 50.368211, 'uid': 10...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ok</td>
+      <td>{'lat': 41.5462, 'lon': 45.0145, 'uid': 12472,...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ok</td>
+      <td>{'lat': 32.536037, 'lon': 35.863945, 'uid': 11...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ok</td>
+      <td>{'lat': 41.197475, 'lon': 32.623379, 'uid': 10...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>After reading this JSON, we can see that our nested list is put up into a single column <strong>data</strong>. How can we flatten the nested list? One solution is to apply a custom function to flatten the values in <strong>data</strong>.</p>
+<p>This certainly does our work, but it requires extra code to get the data in the form we require. We can solve this effectively using the Pandas <code>json_normalize()</code> function.</p>
+</section>
+<section id="flattening-nested-list-from-json-object" class="level2">
+<h2 class="anchored" data-anchor-id="flattening-nested-list-from-json-object">Flattening nested list from JSON object</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load data using Python JSON module</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>((path <span class="op">+</span> <span class="st">'bounds_API.json'</span>),<span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.loads(f.read())</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Flatten data</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df_nested_list <span class="op">=</span> pd.json_normalize(data, record_path <span class="op">=</span>[<span class="st">'data'</span>])</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df_nested_list.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>uid</th>
+      <th>aqi</th>
+      <th>station.name</th>
+      <th>station.time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>32.243608</td>
+      <td>48.813886</td>
+      <td>11254</td>
+      <td>35</td>
+      <td>Gotvand, Khouzestan, Iran (گتوند خوزستان)</td>
+      <td>2022-11-19T04:30:00+09:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>35.034016</td>
+      <td>50.368211</td>
+      <td>10640</td>
+      <td>57</td>
+      <td>Saveh, Markazy, Iran (ساوه مركزی)</td>
+      <td>2022-11-19T04:30:00+09:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41.546200</td>
+      <td>45.014500</td>
+      <td>12472</td>
+      <td>76</td>
+      <td>Batumi Str. 19, Rustavi, Georgia</td>
+      <td>2022-11-19T03:00:00+09:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>32.536037</td>
+      <td>35.863945</td>
+      <td>11420</td>
+      <td>42</td>
+      <td>Al-Hassan Sport City, Irbid, Jordan (ﻣﺪﯾﻨﺔ اﻟﺤ...</td>
+      <td>2022-11-19T03:00:00+09:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>41.197475</td>
+      <td>32.623379</td>
+      <td>10677</td>
+      <td>168</td>
+      <td>Toren Alani, Turkey</td>
+      <td>2022-11-19T04:00:00+09:00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="spliting-station.name" class="level2">
+<h2 class="anchored" data-anchor-id="spliting-station.name">Spliting <code>station.name</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>splitted <span class="op">=</span> df_nested_list[<span class="st">'station.name'</span>].<span class="bu">str</span>.split(<span class="st">','</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_nested_list[<span class="st">'country'</span>] <span class="op">=</span> splitted.<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_nested_list[<span class="st">'province'</span>] <span class="op">=</span> splitted.<span class="bu">str</span>[<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_nested_list[<span class="st">'station'</span>] <span class="op">=</span> splitted.<span class="bu">str</span>[<span class="op">-</span><span class="dv">3</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                         </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df_nested_list.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>uid</th>
+      <th>aqi</th>
+      <th>station.name</th>
+      <th>station.time</th>
+      <th>country</th>
+      <th>province</th>
+      <th>station</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>32.243608</td>
+      <td>48.813886</td>
+      <td>11254</td>
+      <td>35</td>
+      <td>Gotvand, Khouzestan, Iran (گتوند خوزستان)</td>
+      <td>2022-11-19T04:30:00+09:00</td>
+      <td>Iran (گتوند خوزستان)</td>
+      <td>Khouzestan</td>
+      <td>Gotvand</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>35.034016</td>
+      <td>50.368211</td>
+      <td>10640</td>
+      <td>57</td>
+      <td>Saveh, Markazy, Iran (ساوه مركزی)</td>
+      <td>2022-11-19T04:30:00+09:00</td>
+      <td>Iran (ساوه مركزی)</td>
+      <td>Markazy</td>
+      <td>Saveh</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41.546200</td>
+      <td>45.014500</td>
+      <td>12472</td>
+      <td>76</td>
+      <td>Batumi Str. 19, Rustavi, Georgia</td>
+      <td>2022-11-19T03:00:00+09:00</td>
+      <td>Georgia</td>
+      <td>Rustavi</td>
+      <td>Batumi Str. 19</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>32.536037</td>
+      <td>35.863945</td>
+      <td>11420</td>
+      <td>42</td>
+      <td>Al-Hassan Sport City, Irbid, Jordan (ﻣﺪﯾﻨﺔ اﻟﺤ...</td>
+      <td>2022-11-19T03:00:00+09:00</td>
+      <td>Jordan (ﻣﺪﯾﻨﺔ اﻟﺤﺴﻦ اﻟﺮﯾﺎﺿﯿﺔ/ارﺑﺪ)</td>
+      <td>Irbid</td>
+      <td>Al-Hassan Sport City</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>41.197475</td>
+      <td>32.623379</td>
+      <td>10677</td>
+      <td>168</td>
+      <td>Toren Alani, Turkey</td>
+      <td>2022-11-19T04:00:00+09:00</td>
+      <td>Turkey</td>
+      <td>Toren Alani</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_nested_list[<span class="st">'country'</span>] <span class="op">=</span> df_nested_list[<span class="st">'country'</span>].<span class="bu">str</span>.split(<span class="st">'('</span>).<span class="bu">str</span>[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It seems that we have white space before, after or both for each word in <code>country_new</code> column. So, for achive clean data you must remove this white spaces with <code>strip()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove white space before and after words</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_nested_list[<span class="st">'country'</span>] <span class="op">=</span> df_nested_list[<span class="st">'country'</span>].<span class="bu">str</span>.strip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change some values to return Country names correctly (such as example following)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_nested_list.loc[df_nested_list[<span class="st">"country"</span>] <span class="op">==</span> <span class="st">'שפלה פנימית)'</span>, <span class="st">"country"</span>] <span class="op">=</span> <span class="st">'Israel'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking unique values in `country` column</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_nested_list[<span class="st">'country'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array(['Iran', 'Georgia', 'Jordan', 'Turkey', 'Kuwait', 'UAE', 'Cyprus',
+       'Egypt', 'Israel', 'Qatar', 'Greece', 'Bulgaria', 'Iraq',
+       'Palestine', 'Saudi Arabia', 'Turkmenistan', 'Azerbaijan', 'Sudan'],
+      dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove Countries out of Middle East</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_ME <span class="op">=</span> df_nested_list.drop(df_nested_list[(df_nested_list[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Cyprus'</span>) <span class="op">|</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                          (df_nested_list[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Greece'</span>) <span class="op">|</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                          (df_nested_list[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Turkmenistan'</span>) <span class="op">|</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                                          (df_nested_list[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Sudan'</span>) <span class="op">|</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                                          (df_nested_list[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Bulgaria'</span>) <span class="op">|</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                                          (df_nested_list[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Georgia'</span>) <span class="op">|</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                                          (df_nested_list[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Azerbaijan'</span>)].index)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>df_ME[<span class="st">'country'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array(['Iran', 'Jordan', 'Turkey', 'Kuwait', 'UAE', 'Egypt', 'Israel',
+       'Qatar', 'Iraq', 'Palestine', 'Saudi Arabia'], dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save initial cleaned dataframe as df_middle_east.csv</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_ME.to_csv(<span class="st">'df_middle_east.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get Null (None) values index in `country` column.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#non = df_nested_list.loc[pd.isna(df_nested_list["country"]), :].index.tolist()</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace None with Country names</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#for i in non:</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    txt = df_nested_list.iloc[i]['province']</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    df_nested_list['country'].replace('None', str(txt), inplace=True)</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    df_nested_list.loc[i] = str(txt)</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#df_nested_list.head()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mapping-stations" class="level2">
+<h2 class="anchored" data-anchor-id="mapping-stations">Mapping Stations</h2>
+<section id="plotting-with-folium" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-with-folium"><em>Plotting with Folium</em></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Libraries</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading Data</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_me <span class="op">=</span> pd.read_csv(<span class="st">'df_middle_east.csv'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df_me.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>uid</th>
+      <th>aqi</th>
+      <th>station.name</th>
+      <th>station.time</th>
+      <th>country</th>
+      <th>province</th>
+      <th>station</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>32.243608</td>
+      <td>48.813886</td>
+      <td>11254</td>
+      <td>35</td>
+      <td>Gotvand, Khouzestan, Iran (گتوند خوزستان)</td>
+      <td>2022-11-19T04:30:00+09:00</td>
+      <td>Iran</td>
+      <td>Khouzestan</td>
+      <td>Gotvand</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>35.034016</td>
+      <td>50.368211</td>
+      <td>10640</td>
+      <td>57</td>
+      <td>Saveh, Markazy, Iran (ساوه مركزی)</td>
+      <td>2022-11-19T04:30:00+09:00</td>
+      <td>Iran</td>
+      <td>Markazy</td>
+      <td>Saveh</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.536037</td>
+      <td>35.863945</td>
+      <td>11420</td>
+      <td>42</td>
+      <td>Al-Hassan Sport City, Irbid, Jordan (ﻣﺪﯾﻨﺔ اﻟﺤ...</td>
+      <td>2022-11-19T03:00:00+09:00</td>
+      <td>Jordan</td>
+      <td>Irbid</td>
+      <td>Al-Hassan Sport City</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>41.197475</td>
+      <td>32.623379</td>
+      <td>10677</td>
+      <td>168</td>
+      <td>Toren Alani, Turkey</td>
+      <td>2022-11-19T04:00:00+09:00</td>
+      <td>Turkey</td>
+      <td>Toren Alani</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>38.674596</td>
+      <td>39.211668</td>
+      <td>4058</td>
+      <td>39</td>
+      <td>Elazig, Turkey</td>
+      <td>2022-11-19T04:00:00+09:00</td>
+      <td>Turkey</td>
+      <td>Elazig</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datafrma info</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_me.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 309 entries, 0 to 308
+Data columns (total 9 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   lat           309 non-null    float64
+ 1   lon           309 non-null    float64
+ 2   uid           309 non-null    int64  
+ 3   aqi           309 non-null    object 
+ 4   station.name  309 non-null    object 
+ 5   station.time  309 non-null    object 
+ 6   country       309 non-null    object 
+ 7   province      297 non-null    object 
+ 8   station       125 non-null    object 
+dtypes: float64(2), int64(1), object(6)
+memory usage: 21.9+ KB</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only relevant columns</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_me.drop(columns <span class="op">=</span> [<span class="st">'aqi'</span>, <span class="st">'station.name'</span>, <span class="st">'station.time'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_me.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>uid</th>
+      <th>country</th>
+      <th>province</th>
+      <th>station</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>32.243608</td>
+      <td>48.813886</td>
+      <td>11254</td>
+      <td>Iran</td>
+      <td>Khouzestan</td>
+      <td>Gotvand</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>35.034016</td>
+      <td>50.368211</td>
+      <td>10640</td>
+      <td>Iran</td>
+      <td>Markazy</td>
+      <td>Saveh</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.536037</td>
+      <td>35.863945</td>
+      <td>11420</td>
+      <td>Jordan</td>
+      <td>Irbid</td>
+      <td>Al-Hassan Sport City</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>41.197475</td>
+      <td>32.623379</td>
+      <td>10677</td>
+      <td>Turkey</td>
+      <td>Toren Alani</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>38.674596</td>
+      <td>39.211668</td>
+      <td>4058</td>
+      <td>Turkey</td>
+      <td>Elazig</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_me[<span class="st">'country'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array(['Iran', 'Jordan', 'Turkey', 'Kuwait', 'UAE', 'Egypt', 'Israel',
+       'Qatar', 'Iraq', 'Palestine', 'Saudi Arabia'], dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create point geometries</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>geometry <span class="op">=</span> gpd.points_from_xy(df_me.lon, df_me.lat)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>geo_df <span class="op">=</span> gpd.GeoDataFrame(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    df_me[[<span class="st">"uid"</span>, <span class="st">"station"</span>, <span class="st">'province'</span>, <span class="st">'country'</span>, <span class="st">'lat'</span>, <span class="st">'lon'</span>]], geometry<span class="op">=</span>geometry</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>geo_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>uid</th>
+      <th>station</th>
+      <th>province</th>
+      <th>country</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11254</td>
+      <td>Gotvand</td>
+      <td>Khouzestan</td>
+      <td>Iran</td>
+      <td>32.243608</td>
+      <td>48.813886</td>
+      <td>POINT (48.81389 32.24361)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10640</td>
+      <td>Saveh</td>
+      <td>Markazy</td>
+      <td>Iran</td>
+      <td>35.034016</td>
+      <td>50.368211</td>
+      <td>POINT (50.36821 35.03402)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11420</td>
+      <td>Al-Hassan Sport City</td>
+      <td>Irbid</td>
+      <td>Jordan</td>
+      <td>32.536037</td>
+      <td>35.863945</td>
+      <td>POINT (35.86395 32.53604)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10677</td>
+      <td>NaN</td>
+      <td>Toren Alani</td>
+      <td>Turkey</td>
+      <td>41.197475</td>
+      <td>32.623379</td>
+      <td>POINT (32.62338 41.19747)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4058</td>
+      <td>NaN</td>
+      <td>Elazig</td>
+      <td>Turkey</td>
+      <td>38.674596</td>
+      <td>39.211668</td>
+      <td>POINT (39.21167 38.67460)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="convert-aqi-of-pm10-to-pm10-concentration" class="level1">
+<h1>Convert AQI of PM10 to PM10 Concentration</h1>
+<p>AQI data in <a href="aqicn.org">aqicn</a> should be converted to the raw concentration using the US EPA standard. In this project we need concetraion of <code>PM10</code>, so we should convert <code>PM10 AQI</code> to <code>PM10 Concentarion</code>, such as <a href="https://www.airnow.gov/aqi/aqi-calculator/">AQI Calculator</a>.</p>
+</section>
+<section id="how-does-the-aqi-work" class="level1">
+<h1>How does the AQI work?</h1>
+<p>(srcs: <a href="https://www.airnow.gov/aqi/aqi-basics/">1</a>, <a href="https://en.wikipedia.org/wiki/Air_quality_index#United_States">2</a>)</p>
+<p>hink of the <code>AQI</code> as a yardstick that runs from 0 to 500. The higher the <code>AQI</code> value, the greater the level of air pollution and the greater the health concern. For example, an <code>AQI</code> value of 50 or below represents good air quality, while an <code>AQI</code> value over 300 represents hazardous air quality.</p>
+<p>For each pollutant an <code>AQI</code> value of 100 generally corresponds to an ambient air concentration that equals the level of the short-term national ambient air quality standard for protection of public health. <code>AQI</code> values at or below 100 are generally thought of as satisfactory. When <code>AQI</code> values are above 100, air quality is unhealthy: at first for certain sensitive groups of people, then for everyone as <code>AQI</code> values get higher.</p>
+<p>The <code>AQI</code> is divided into six categories. Each category corresponds to a different level of health concern. Each category also has a specific color. The color makes it easy for people to quickly determine whether air quality is reaching unhealthy levels in their communities.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img src="images/aqi_categories.png" class="img-fluid" alt="aqi_category"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><em>AQI Categories</em></td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><img src="images/aqi_epa_usa.png" class="img-fluid" alt="aqi_epa_usa"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><em>AQI of EPA Categories</em></td>
+</tr>
+</tbody>
+</table>
+<p>Converting <code>AQI values</code> to <code>Concentration values</code>, we can use <a href="https://github.com/NILICK/python-aqi">python-aqi</a> python library.</p>
+</section>
+<section id="using-python-aqi-in-pandas" class="level1">
+<h1>Using <code>python-aqi</code> in pandas</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> aqi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading aqi file in csv format</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./Cleand_data/Turkey/tr_adana_catalan.csv"</span>) <span class="co"># read csv</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'date'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%Y/%m/</span><span class="sc">%d</span><span class="st">'</span>) <span class="co"># change `date` column to 'datetime'.</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>df.set_index([<span class="st">'date'</span>], inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># setting index column.</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_index() <span class="co"># sort date based on `datetime`.</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>pm25</th>
+      <th>pm10</th>
+      <th>o3</th>
+      <th>no2</th>
+      <th>so2</th>
+      <th>co</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>country</th>
+      <th>station</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-12-31</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-01</th>
+      <td>NaN</td>
+      <td>24.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-02</th>
+      <td>NaN</td>
+      <td>24.0</td>
+      <td>15.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-03</th>
+      <td>NaN</td>
+      <td>24.0</td>
+      <td>18.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-04</th>
+      <td>NaN</td>
+      <td>23.0</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 3069 entries, 2013-12-31 to 2022-11-16
+Data columns (total 10 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   pm25     698 non-null    float64
+ 1   pm10     2959 non-null   float64
+ 2   o3       2954 non-null   float64
+ 3   no2      2057 non-null   float64
+ 4   so2      2370 non-null   float64
+ 5   co       1126 non-null   float64
+ 6   lat      3069 non-null   float64
+ 7   lon      3069 non-null   float64
+ 8   country  3069 non-null   object 
+ 9   station  3069 non-null   object 
+dtypes: float64(8), object(2)
+memory usage: 263.7+ KB</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>3069</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset dataframe include ['pm10', 'lat', 'lon', 'country', 'station'] columns</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pm10(df):</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'pm10'</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        df_pm10 <span class="op">=</span> df[[<span class="st">'pm10'</span>, <span class="st">'lat'</span>, <span class="st">'lon'</span>, <span class="st">'country'</span>, <span class="st">'station'</span>]]</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> df_pm10</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_pm10 <span class="op">=</span> pm10(df)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_pm10.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>pm10</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>country</th>
+      <th>station</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-12-31</th>
+      <td>NaN</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-01</th>
+      <td>24.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-02</th>
+      <td>24.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-03</th>
+      <td>24.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+    <tr>
+      <th>2014-01-04</th>
+      <td>23.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking `NaN` values in columns</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df_pm10.columns[df_pm10.isna().<span class="bu">any</span>()].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>['pm10']</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop 'NaN' rows</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df_pm10.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(df_pm10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>2959</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_pm10[<span class="st">'pm10'</span>].<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>746.0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maximum AQI is 500, so AQI more than this value should be drop</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>dfpm10 <span class="op">=</span> df_pm10[df_pm10[<span class="st">'pm10'</span>] <span class="op">&lt;=</span> <span class="dv">500</span>]</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>dfpm10.pm10.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>433.0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(aa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>2957</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a function to calculate concentration value `cc` from AQI value.</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aqi_to_cc_pm10(x):</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    cc <span class="op">=</span> aqi.to_cc(aqi.POLLUTANT_PM10, x, algo<span class="op">=</span>aqi.ALGO_EPA) <span class="co"># calculate PM10 concentration.</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    pm10_cc <span class="op">=</span> pd.to_numeric(cc) <span class="co"># convert series to float number.</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pm10_cc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using function and create new column `PM10_ug/m3` for results as pm10 concentration.</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>dfpm10[<span class="st">'PM10_ug/m3'</span>] <span class="op">=</span> dfpm10[<span class="st">'pm10'</span>].<span class="bu">apply</span>(aqi_to_cc_pm10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>dfpm10.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>pm10</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>country</th>
+      <th>station</th>
+      <th>PM10_ug/m3</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-01-01</th>
+      <td>24.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>2014-01-02</th>
+      <td>24.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>2014-01-03</th>
+      <td>24.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>2014-01-04</th>
+      <td>23.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>2014-01-05</th>
+      <td>29.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>31.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(dfpm10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>2957</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>dfpm10[<span class="dv">220</span>:<span class="dv">230</span>] <span class="co"># checking by index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>pm10</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>country</th>
+      <th>station</th>
+      <th>PM10_ug/m3</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-09-10</th>
+      <td>25.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>27.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-11</th>
+      <td>26.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-12</th>
+      <td>29.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-13</th>
+      <td>34.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>36.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-14</th>
+      <td>27.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-15</th>
+      <td>27.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-16</th>
+      <td>28.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-17</th>
+      <td>20.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-18</th>
+      <td>20.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>2014-09-19</th>
+      <td>16.0</td>
+      <td>37.186701</td>
+      <td>35.264586</td>
+      <td>Turkey</td>
+      <td>Adana catalan</td>
+      <td>17.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="function-for-convert-aqi-to-concentration" class="level2">
+<h2 class="anchored" data-anchor-id="function-for-convert-aqi-to-concentration">Function for convert AQI to Concentration</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> df</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>iran <span class="op">=</span> pd.read_csv(<span class="st">'./AQICN_Dataset/Cleand_AQI_data/Iran/ir_abdanan.csv'</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>iran.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>date</th>
+      <th>pm25</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>country</th>
+      <th>station</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01</td>
+      <td>NaN</td>
+      <td>32.989</td>
+      <td>47.414305</td>
+      <td>Iran</td>
+      <td>Abdanan</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-02</td>
+      <td>NaN</td>
+      <td>32.989</td>
+      <td>47.414305</td>
+      <td>Iran</td>
+      <td>Abdanan</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-03</td>
+      <td>NaN</td>
+      <td>32.989</td>
+      <td>47.414305</td>
+      <td>Iran</td>
+      <td>Abdanan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-04</td>
+      <td>NaN</td>
+      <td>32.989</td>
+      <td>47.414305</td>
+      <td>Iran</td>
+      <td>Abdanan</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-06</td>
+      <td>NaN</td>
+      <td>32.989</td>
+      <td>47.414305</td>
+      <td>Iran</td>
+      <td>Abdanan</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>iran <span class="op">=</span> pd.read_csv(<span class="st">'./AQICN_Dataset/Cleand_AQI_data/Cyprus/cy_larnaca_traffic.csv'</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>iran.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>date</th>
+      <th>pm25</th>
+      <th>pm10</th>
+      <th>o3</th>
+      <th>no2</th>
+      <th>so2</th>
+      <th>co</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>country</th>
+      <th>station</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-11-01</td>
+      <td>58.0</td>
+      <td>36.0</td>
+      <td>NaN</td>
+      <td>12.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>34.9159</td>
+      <td>33.62749</td>
+      <td>CY</td>
+      <td>larnaca-traffic</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-11-02</td>
+      <td>58.0</td>
+      <td>40.0</td>
+      <td>NaN</td>
+      <td>13.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>34.9159</td>
+      <td>33.62749</td>
+      <td>CY</td>
+      <td>larnaca-traffic</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-11-03</td>
+      <td>65.0</td>
+      <td>33.0</td>
+      <td>NaN</td>
+      <td>13.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>34.9159</td>
+      <td>33.62749</td>
+      <td>CY</td>
+      <td>larnaca-traffic</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-11-04</td>
+      <td>60.0</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>34.9159</td>
+      <td>33.62749</td>
+      <td>CY</td>
+      <td>larnaca-traffic</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-11-05</td>
+      <td>64.0</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>34.9159</td>
+      <td>33.62749</td>
+      <td>CY</td>
+      <td>larnaca-traffic</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import libraries</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> aqi</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> glob <span class="im">import</span> glob</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset dataframe include ['pm10', 'lat', 'lon', 'country', 'station'] columns</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="co">## if there is not `pm10` convert df to empty dataframe to go next iterate</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cols(df):</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">'pm10'</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(df.columns)</span></span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>        df_pm10 <span class="op">=</span> df[[<span class="st">'date'</span>, <span class="st">'pm10'</span>, <span class="st">'lat'</span>, <span class="st">'lon'</span>, <span class="st">'country'</span>, <span class="st">'station'</span>]]</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> df_pm10</span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(df.columns)</span></span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>        df_empty <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>df.columns)</span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> df_empty</span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Definning a function to calculate concentration value `cc` from AQI value.</span></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aqi_to_cc_pm10(x):</span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>    cc <span class="op">=</span> aqi.to_cc(aqi.POLLUTANT_PM10, x, algo<span class="op">=</span>aqi.ALGO_EPA) <span class="co"># calculate PM10 concentration.</span></span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>    pm10_cc <span class="op">=</span> pd.to_numeric(cc) <span class="co"># convert series to float number.</span></span>
+<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pm10_cc</span>
+<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying for CSV files</span></span>
+<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aqi_to_cc(path):</span>
+<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> glob(path <span class="op">+</span> <span class="st">'*.csv'</span>)</span>
+<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> csvfile <span class="kw">in</span> files:</span>
+<span id="cb50-32"><a href="#cb50-32" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> pd.read_csv(csvfile, sep <span class="op">=</span> <span class="st">','</span>) <span class="co"># read csv</span></span>
+<span id="cb50-33"><a href="#cb50-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">#df['date'] = pd.to_datetime(df['date'], format='%Y/%m/%d') # change `date` column to 'datetime'.</span></span>
+<span id="cb50-34"><a href="#cb50-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">#df.set_index(['date'], inplace=True) # setting index column.</span></span>
+<span id="cb50-35"><a href="#cb50-35" aria-hidden="true" tabindex="-1"></a>        <span class="co">#df = df.sort_index() # sort date based on `datetime`.</span></span>
+<span id="cb50-36"><a href="#cb50-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Keep necessary columns</span></span>
+<span id="cb50-37"><a href="#cb50-37" aria-hidden="true" tabindex="-1"></a>        df_cols <span class="op">=</span> cols(df)</span>
+<span id="cb50-38"><a href="#cb50-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> df_cols.empty:</span>
+<span id="cb50-39"><a href="#cb50-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb50-40"><a href="#cb50-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb50-41"><a href="#cb50-41" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Drop 'NaN' rows</span></span>
+<span id="cb50-42"><a href="#cb50-42" aria-hidden="true" tabindex="-1"></a>            df_cols <span class="op">=</span> df_cols.dropna()</span>
+<span id="cb50-43"><a href="#cb50-43" aria-hidden="true" tabindex="-1"></a>            df_cols.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb50-44"><a href="#cb50-44" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb50-45"><a href="#cb50-45" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Maximum AQI is 500, so AQI more than this value should be drop</span></span>
+<span id="cb50-46"><a href="#cb50-46" aria-hidden="true" tabindex="-1"></a>            df_pm10 <span class="op">=</span> df_cols[df_cols[<span class="st">'pm10'</span>] <span class="op">&lt;=</span> <span class="dv">500</span>]</span>
+<span id="cb50-47"><a href="#cb50-47" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Convert AQI to CC and create new column `PM10_ug/m3` for results as pm10 concentration.</span></span>
+<span id="cb50-48"><a href="#cb50-48" aria-hidden="true" tabindex="-1"></a>            df_pm10[<span class="st">'PM10_ug/m3'</span>] <span class="op">=</span> df_pm10[<span class="st">'pm10'</span>].<span class="bu">apply</span>(aqi_to_cc_pm10)</span>
+<span id="cb50-49"><a href="#cb50-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-50"><a href="#cb50-50" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Save final dataframe</span></span>
+<span id="cb50-51"><a href="#cb50-51" aria-hidden="true" tabindex="-1"></a>            df_pm10.to_csv(os.path.splitext(csvfile)[<span class="dv">0</span>] <span class="op">+</span> <span class="st">'_pm10.csv'</span>,</span>
+<span id="cb50-52"><a href="#cb50-52" aria-hidden="true" tabindex="-1"></a>                           index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb50-53"><a href="#cb50-53" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb50-54"><a href="#cb50-54" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Delete variables</span></span>
+<span id="cb50-55"><a href="#cb50-55" aria-hidden="true" tabindex="-1"></a>            <span class="kw">del</span> df_cols</span>
+<span id="cb50-56"><a href="#cb50-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-57"><a href="#cb50-57" aria-hidden="true" tabindex="-1"></a>        <span class="kw">del</span> (df, df_pm10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">'./AQICN_Dataset/Cleand_AQI_data/Iran/'</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>aqi_to_cc(path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
