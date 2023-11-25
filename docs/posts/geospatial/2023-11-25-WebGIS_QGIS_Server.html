@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Me">
+<meta name="dcterms.date" content="2023-11-25">
+<meta name="description" content="This post is about WebGIS and QGIS Server building.">
 
-<title>Envinformatics – webgis_qgis_server</title>
+<title>Envinformatics - WebGIS &amp; RS learning and notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +65,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Envinformatics - WebGIS &amp; RS learning and notes">
+<meta property="og:description" content="This post is about WebGIS and QGIS Server building.">
+<meta property="og:image" content="images/webgis.png">
+<meta property="og:site-name" content="Envinformatics">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -105,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">WebGIS &amp; RS learning and notes</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -128,17 +135,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/geospatial/2023-11-25-WebGIS_QGIS_Server.html" class="sidebar-item-text sidebar-link active">2023 11 25 WebGIS QGIS Server</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../posts/geospatial/2021-03-25-address_urls_geodatabase.html" class="sidebar-item-text sidebar-link">Geospatial Data Address</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/geospatial/2021-07-03-Learning-GIS-RS.html" class="sidebar-item-text sidebar-link">GIS &amp; RS learning and notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/geospatial/2023-11-25-WebGIS_QGIS_Server.html" class="sidebar-item-text sidebar-link active">WebGIS &amp; RS learning and notes</a>
   </div>
 </li>
       </ul>
@@ -223,7 +230,42 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">WebGIS &amp; RS learning and notes</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Geospatial</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    This post is about WebGIS and QGIS Server building.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Me </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 25, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
 
 <p>Running QWC2 as part of qwc-services<br> (src: https://qwc-services.github.io/QuickStart/)</p>
 <p>The easiest way to run <em>qwc-services</em> is to use the readily available docker images, using the sample setup at <a href="https://github.com/qwc-services/qwc-docker">qwc-docker</a>.</p>
