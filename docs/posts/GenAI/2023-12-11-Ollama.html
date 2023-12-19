@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.262">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Me">
+<meta name="dcterms.date" content="2023-12-11">
+<meta name="description" content="This post is about Ollama installing and setting for private chatbots.">
+
+<title>Envinformatics - Ollama Using</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../hmbnnblog-logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Envinformatics - Ollama Using">
+<meta property="og:description" content="This post is about Ollama installing and setting for private chatbots.">
+<meta property="og:image" content="images/ollama.png">
+<meta property="og:site-name" content="Envinformatics">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Envinformatics</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="dropdown-header">
+ <span class="menu-text">Index</span></li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Ollama Using</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Geospatial</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/geospatial/2021-03-25-address_urls_geodatabase.html" class="sidebar-item-text sidebar-link">Geospatial Data Address</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/geospatial/2021-07-03-Learning-GIS-RS.html" class="sidebar-item-text sidebar-link">GIS &amp; RS learning and notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/geospatial/2023-11-25-WebGIS_QGIS_Server.html" class="sidebar-item-text sidebar-link">WebGIS &amp; QGIS Server</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Explanations</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/explanations/2021-03-01_create_blog.html" class="sidebar-item-text sidebar-link">Blogging with Quarto</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/explanations/2021-06-07-My-Notes-Jupyterlab.html" class="sidebar-item-text sidebar-link">Jupyterlab</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/explanations/2021-07-02-ML-Resources.html" class="sidebar-item-text sidebar-link">ML-DL Resources</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/explanations/2022-09-30-My-Notes-Ubuntu.html" class="sidebar-item-text sidebar-link">Ubuntu</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/explanations/2023-12-01-AnyDesk.ipynb.html" class="sidebar-item-text sidebar-link">Ubuntu &amp; AnyDesk</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Analysis Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html" class="sidebar-item-text sidebar-link">Analysis process of downscaled MERRA-2 data</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Data Science</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/data_science/2023-02-08-Geospatial_ML_DL.html" class="sidebar-item-text sidebar-link">GepSpatial ML-DL Sources</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/data_science/2022-11-11-Scraping_AQI.html" class="sidebar-item-text sidebar-link">Scraping AQI</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/data_science/2023-03-23-TopoPyScale.html" class="sidebar-item-text sidebar-link">TopoPyScale</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#install-docker" id="toc-install-docker" class="nav-link active" data-scroll-target="#install-docker">Install Docker</a></li>
+  <li><a href="#install-cuda" id="toc-install-cuda" class="nav-link" data-scroll-target="#install-cuda">Install CUDA</a></li>
+  <li><a href="#install-ollama" id="toc-install-ollama" class="nav-link" data-scroll-target="#install-ollama">Install Ollama</a></li>
+  <li><a href="#ollama-docker-image" id="toc-ollama-docker-image" class="nav-link" data-scroll-target="#ollama-docker-image">Ollama Docker image</a></li>
+  <li><a href="#latest-method-for-ollama-installation-with-langchain" id="toc-latest-method-for-ollama-installation-with-langchain" class="nav-link" data-scroll-target="#latest-method-for-ollama-installation-with-langchain">Latest Method For Ollama Installation with Langchain</a>
+  <ul>
+  <li><a href="#above-steps-not-worked-in-ubuntu" id="toc-above-steps-not-worked-in-ubuntu" class="nav-link" data-scroll-target="#above-steps-not-worked-in-ubuntu">Above Steps not Worked in Ubuntu</a></li>
+  </ul></li>
+  <li><a href="#using-streamlit-with-ollama-and-langchain" id="toc-using-streamlit-with-ollama-and-langchain" class="nav-link" data-scroll-target="#using-streamlit-with-ollama-and-langchain">Using Streamlit with Ollama and Langchain</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Ollama Using</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">GenAI</div>
+    <div class="quarto-category">Ollama</div>
+    <div class="quarto-category">Docker</div>
+    <div class="quarto-category">Streamlit</div>
+    <div class="quarto-category">LLMs</div>
+    <div class="quarto-category">CUDA</div>
+    <div class="quarto-category">CPU</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This post is about Ollama installing and setting for private chatbots.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Me </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 11, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="install-docker" class="level2">
+<h2 class="anchored" data-anchor-id="install-docker">Install Docker</h2>
+<p><strong><em>src: https://docs.docker.com/engine/install/ubuntu/</em></strong></p>
+<p>1- Uninstall old versions:</p>
+<p>The unofficial packages to uninstall are:</p>
+<p>docker.io<br> docker-compose<br> docker-compose-v2<br> docker-doc<br> podman-docker<br></p>
+<pre><code>for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done</code></pre>
+<p>2- Install from a package:</p>
+<p>If you can’t use Docker’s apt repository to install Docker Engine, you can download the deb file for your release and install it manually. You need to download a new file each time you want to upgrade Docker Engine.</p>
+<p>Go to <code>https://download.docker.com/linux/ubuntu/dists/</code>.</p>
+<p>Select your Ubuntu version in the list.</p>
+<p>Go to pool/stable/ and select the applicable architecture (amd64, armhf, arm64, or s390x).</p>
+<p>Download the following deb files for the Docker Engine, CLI, containerd, and Docker Compose packages:</p>
+<pre><code>containerd.io_&lt;version&gt;_&lt;arch&gt;.deb
+docker-ce_&lt;version&gt;_&lt;arch&gt;.deb
+docker-ce-cli_&lt;version&gt;_&lt;arch&gt;.deb
+docker-buildx-plugin_&lt;version&gt;_&lt;arch&gt;.deb
+docker-compose-plugin_&lt;version&gt;_&lt;arch&gt;.deb</code></pre>
+<p>Install the .deb packages. Update the paths in the following example to where you downloaded the Docker packages.</p>
+<p>sudo dpkg -i ./containerd.io_<version><em><arch>.deb<br>
+./docker-ce</arch></em><version><em><arch>.deb<br>
+./docker-ce-cli</arch></em><version><em><arch>.deb<br>
+./docker-buildx-plugin</arch></em><version><em><arch>.deb<br>
+./docker-compose-plugin</arch></em><version>_<arch>.deb</arch></version></version></version></version></version></p>
+<p>The Docker daemon starts automatically.</p>
+<p>Verify that the Docker Engine installation is successful by running the hello-world image.</p>
+<pre><code> sudo service docker start
+ sudo docker run hello-world</code></pre>
+</section>
+<section id="install-cuda" class="level2">
+<h2 class="anchored" data-anchor-id="install-cuda">Install CUDA</h2>
+<p>Install CUDA for using GPU</p>
+<p>1- sudo apt update<br> 2- sudo apt upgrade<br> 3- sudo apt install ubuntu-drivers-common<br> 4- sudo ubuntu-drivers devices<br> 5- recommends the NVIDIA driver 535<br></p>
+<pre><code>driver   : nvidia-driver-535 - distro non-free recommended</code></pre>
+<p>6- sudo apt install nvidia-driver-535<br> 7- Reboot<br> 8- Using NVIDIA icon in top page change to “Switch to: NVIDIA (Performance Mode) and then Logout.<br> 9- nvidia-smi<br></p>
+<p>you must see a table. At the top of the table, we will see the driver version and CUDA driver API compatibility:</p>
+<pre><code>NVIDIA-SMI 535.86.05              Driver Version: 535.86.05    CUDA Version: 12.2</code></pre>
+<p>10- sudo apt install gcc<br> 11- Install CUDA toolkit Ubuntu<br></p>
+<p>src:https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_network</p>
+<pre><code>wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update  ((for this step you must use VPN such as windscribe:( ))
+sudo apt-get -y install cuda-toolkit-12-3 ((for this step you must use VPN such as windscribe:( ))</code></pre>
+<p>If you encounter dependency errors during the installation, try running <code>sudo apt --fix-broken install</code> to fix them. Apt will suggest running it if needed.</p>
+<p>12- Reboot<br> 13- Environment setup<br></p>
+<p>We will now proceed to update the environment variables as recommended by the NVIDIA documentation. Add the following line to your <code>.bashrc</code> file using <code>nano ~/.bashrc</code> and paste the following lines at the end of the file.</p>
+<pre><code>export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-12.2/lib64\
+                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}</code></pre>
+<p>Save the file.</p>
+<p>14- Reboot</p>
+<p>15- Test the CUDA toolkit<br></p>
+<pre><code>nvcc -V</code></pre>
+<p>You must see:</p>
+<pre><code>nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Fri_Nov__3_17:16:49_PDT_2023
+Cuda compilation tools, release 12.3, V12.3.103
+Build cuda_12.3.r12.3/compiler.33492891_0</code></pre>
+<p>src: https://www.cherryservers.com/blog/install-cuda-ubuntu</p>
+</section>
+<section id="install-ollama" class="level2">
+<h2 class="anchored" data-anchor-id="install-ollama">Install Ollama</h2>
+<p>src: https://github.com/jmorganca/ollama/blob/main/docs/linux.md</p>
+<p>1- Create a user for Ollama:</p>
+<pre><code>sudo useradd -r -s /bin/false -m -d /usr/share/ollama ollama</code></pre>
+<p>2- Create a service file in <code>/etc/systemd/system/ollama.service</code>:</p>
+<pre><code>[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target</code></pre>
+<p>3- Then start the service:</p>
+<pre><code>sudo systemctl daemon-reload
+sudo systemctl enable ollama</code></pre>
+<p>4- Start Ollama using systemd:</p>
+<pre><code>sudo systemctl start ollama</code></pre>
+<p>5- Update ollama by downloading the ollama binary:</p>
+<pre><code>sudo curl -L https://ollama.ai/download/ollama-linux-amd64 -o /usr/bin/ollama
+sudo chmod +x /usr/bin/ollama</code></pre>
+<p>6- To view logs of Ollama running as a startup service, run:</p>
+<pre><code>journalctl -u ollama</code></pre>
+</section>
+<section id="ollama-docker-image" class="level2">
+<h2 class="anchored" data-anchor-id="ollama-docker-image">Ollama Docker image</h2>
+<p>src:https://hub.docker.com/r/ollama/ollama</p>
+<p>1- docker pull ollama/ollama</p>
+<p>2- CPU only:</p>
+<pre><code>docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</code></pre>
+<p>3- Nvidia GPU with Apt</p>
+<p>3-1- Configure the repository:</p>
+<pre><code>curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
+    | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
+    | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
+    | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo apt-get update</code></pre>
+<p>3-2- Install the NVIDIA Container Toolkit packages</p>
+<pre><code>sudo apt-get install -y nvidia-container-toolkit</code></pre>
+<p>3-3- Configure Docker to use Nvidia driver:</p>
+<pre><code>sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker</code></pre>
+<p>3-4- Start the container:</p>
+<pre><code>docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</code></pre>
+<p>3-5- Run model locally</p>
+<p>Now you can run a model:</p>
+<pre><code>docker exec -it ollama ollama run llama2 </code></pre>
+<p>for the first time this code will download your desired model <a href="https://ollama.ai/library">Ollama Models</a>.</p>
+<p>4- If you want run again and again model use below code in terminal and again 2 (for only CPU) and 3-4(GPU):</p>
+<pre><code>sudo docker ps -a
+sudo docker stop ollama
+sudo docker rm ollama</code></pre>
+</section>
+<section id="latest-method-for-ollama-installation-with-langchain" class="level1">
+<h1>Latest Method For Ollama Installation with Langchain</h1>
+<p><a href="https://blog.duy-huynh.com/build-your-own-rag-and-run-them-locally/">Build your own RAG and run it locally: Langchain + Ollama + Streamlit</a></p>
+<p><a href="src:%20https://github.com/jmorganca/ollama/blob/main/docs/linux.md#manual-install">Install Ollama</a></p>
+<p>1- Install Ollama in linux:</p>
+<pre><code>sudo curl -L https://ollama.ai/download/ollama-linux-amd64 -o /usr/bin/ollama
+sudo chmod +x /usr/bin/ollama</code></pre>
+<p>2- Create a user for Ollama:</p>
+<pre><code>sudo useradd -r -s /bin/false -m -d /usr/share/ollama ollama</code></pre>
+<p>3- Create a service file in /etc/systemd/system/ollama.service:</p>
+<pre><code>[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target</code></pre>
+<p>4- Then start the service:</p>
+<pre><code>sudo systemctl daemon-reload
+udo systemctl enable ollama</code></pre>
+<p>5- Start Ollama using systemd:</p>
+<pre><code>sudo systemctl start ollama</code></pre>
+<p>============================================</p>
+<section id="above-steps-not-worked-in-ubuntu" class="level2">
+<h2 class="anchored" data-anchor-id="above-steps-not-worked-in-ubuntu">Above Steps not Worked in Ubuntu</h2>
+<p>============================================</p>
+<p>Using Ollama as Docker (src:https://hub.docker.com/r/ollama/ollama)</p>
+<p>1- docker pull ollama/ollama</p>
+<p>2- CPU only</p>
+<pre><code>docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</code></pre>
+<p>3- Using Ollama with GPU needs at least 4 GPU 4Gb (total 16 Gb), so I can only use CPU.</p>
+<p>4- Run model locally</p>
+<pre><code>docker exec -it ollama ollama run llama2</code></pre>
+<p>6- Create new env with python &lt; 3.12</p>
+<pre><code>- micromamba activate base
+- micromamba create -n ollama python=3.11
+- micromamba activate ollama</code></pre>
+<p>7- Build the RAG pipeline (src:https://blog.duy-huynh.com/build-your-own-rag-and-run-them-locally/)</p>
+<pre><code>- pip install langchain==0.0.343
+- pip install streamlit==1.29.0
+- pip install streamlit-chat==0.1.1
+- pip install pypdf==3.17.1
+- pip install fastembed==0.1.1
+- pip install openai==1.3.6
+- pip install langchainhub==0.1.14
+- pip install chromadb==0.4.18
+- pip install watchdog==3.0.0</code></pre>
+<p>8- Some Commands with Ollama</p>
+<pre><code>sudo docker ps -a # List of AvailableModels
+sudo docker stop ollama # Stop the current model
+sudo docker rm ollama # Remove the current model</code></pre>
+<p>9- How do I clean the memory cache?</p>
+<pre><code>sync &amp;&amp; echo 3 | sudo tee /proc/sys/vm/drop_caches</code></pre>
+</section>
+</section>
+<section id="using-streamlit-with-ollama-and-langchain" class="level1">
+<h1>Using Streamlit with Ollama and Langchain</h1>
+<p>Save below code in a file with name myapp.py:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Required Libraries</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tempfile</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> textwrap</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> streamlit_chat <span class="im">import</span> message</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.llms <span class="im">import</span> Ollama <span class="co">#Cohere</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.vectorstores <span class="im">import</span> Chroma, FAISS</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chains <span class="im">import</span> RetrievalQA, LLMChain</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.embeddings <span class="im">import</span> HuggingFaceEmbeddings <span class="co">#CohereEmbeddings</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.memory <span class="im">import</span> ConversationBufferMemory</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.document_loaders <span class="im">import</span> PyMuPDFLoader, DirectoryLoader</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.memory.chat_message_histories <span class="im">import</span> StreamlitChatMessageHistory</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.text_splitter <span class="im">import</span> CharacterTextSplitter,RecursiveCharacterTextSplitter</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="bu">__import__</span>(<span class="st">"pysqlite3"</span>)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>sys.modules[<span class="st">"sqlite3"</span>] <span class="op">=</span> sys.modules.pop(<span class="st">"pysqlite3"</span>)</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting Up Streamlit Page</span></span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>st.set_page_config(page_title<span class="op">=</span><span class="st">"Ollama Chatbot"</span>, page_icon<span class="op">=</span> <span class="st">"💬"</span>)</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> st.sidebar:</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>    st.title(<span class="st">'💬 OLLAMA Chatbot'</span>)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">#st.divider()</span></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select the model</span></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>    selected_model <span class="op">=</span> st.selectbox(<span class="st">'Choose a model'</span>, [<span class="st">'Mistral'</span>, <span class="st">'Llama2'</span>, <span class="st">'Code Llama'</span>, <span class="st">'Zephyr'</span>], key<span class="op">=</span><span class="st">'selected_model'</span>)</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> selected_model <span class="op">==</span> <span class="st">"Mistral"</span>:</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>        llm_model <span class="op">=</span> <span class="st">"mistral"</span></span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>        st.caption(<span class="st">"""</span></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a><span class="st">                   The Mistral 7B model released by Mistral AI.</span></span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a><span class="st">                   """</span>) </span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> selected_model <span class="op">==</span> <span class="st">"Llama2"</span>:</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>        llm_model <span class="op">=</span> <span class="st">"llama2"</span></span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>        st.caption(<span class="st">"""</span></span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a><span class="st">                   Llama 2 is released by Meta Platforms, Inc.</span></span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a><span class="st">                   """</span>)</span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> selected_model <span class="op">==</span> <span class="st">"Zephyr"</span>:</span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>        llm_model <span class="op">=</span> <span class="st">"zephyr"</span></span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>        st.caption(<span class="st">"""</span></span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a><span class="st">                   Zephyr is a 7 billion parameter model, fine-tuned on Mistral to achieve results similar to </span></span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a><span class="st">                   Llama 2 70B Chat in several benchmarks.</span></span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a><span class="st">                   """</span>)</span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>        llm_model <span class="op">=</span> <span class="st">"codellama"</span></span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a>        st.caption(<span class="st">"""</span></span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a><span class="st">                   Code Llama is a model for generating and discussing code, built on top of Llama 2.</span></span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a><span class="st">                   """</span>) </span>
+<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a>    <span class="co">#st.divider()</span></span>
+<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a>    temp_r <span class="op">=</span> st.slider(<span class="st">"Temperature"</span>, <span class="fl">0.0</span>, <span class="fl">0.9</span>, <span class="fl">0.0</span>, <span class="fl">0.1</span>)</span>
+<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>    chunk_size <span class="op">=</span> st.slider(<span class="st">"Chunk Size for Splitting Document "</span>, <span class="dv">256</span>, <span class="dv">1024</span>, <span class="dv">400</span>, <span class="dv">10</span>)</span>
+<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a>    chunk_overlap <span class="op">=</span> st.slider(<span class="st">"Chunk Overlap "</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>, <span class="dv">5</span>)</span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>    clear_button <span class="op">=</span> st.button(<span class="st">"Clear Conversation"</span>, key<span class="op">=</span><span class="st">"clear"</span>)</span>
+<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a><span class="co">#-----------------------Functions-------------------------------#</span></span>
+<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a><span class="co"># function for loading the embedding model</span></span>
+<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_embedding_model(model_path, normalize_embedding<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> HuggingFaceEmbeddings(</span>
+<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a>        model_name<span class="op">=</span>model_path,</span>
+<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a>        <span class="co">#model_kwargs={'device': 'cuda'}, #  you can set model_kwargs={'device': 'cuda:0'} for the first GPU, model_kwargs={'device': 'cuda:1'} for the second GPU, and so on.(src:https://github.com/langchain-ai/langchain/issues/10436)</span></span>
+<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a>        model_kwargs<span class="op">=</span>{<span class="st">'device'</span>:<span class="st">'cpu'</span>}, <span class="co"># here we will run the model with CPU only</span></span>
+<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a>        encode_kwargs <span class="op">=</span> {</span>
+<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a>            <span class="st">'normalize_embeddings'</span>: normalize_embedding <span class="co"># keep True to compute cosine similarity</span></span>
+<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for creating embeddings using FAISS</span></span>
+<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_embeddings(chunks, embedding_model, storing_path<span class="op">=</span><span class="st">"vectorstore"</span>):</span>
+<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Creating the embeddings using FAISS</span></span>
+<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a>    vectorstore <span class="op">=</span> FAISS.from_documents(chunks, embedding_model)</span>
+<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Saving the model in current directory</span></span>
+<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a>    vectorstore.save_local(storing_path)</span>
+<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-82"><a href="#cb34-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># returning the vectorstore</span></span>
+<span id="cb34-83"><a href="#cb34-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> vectorstore</span>
+<span id="cb34-84"><a href="#cb34-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-85"><a href="#cb34-85" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-86"><a href="#cb34-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the chain for Question Answering</span></span>
+<span id="cb34-87"><a href="#cb34-87" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_qa_chain(retriever, llm, prompt):</span>
+<span id="cb34-88"><a href="#cb34-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> RetrievalQA.from_chain_type(</span>
+<span id="cb34-89"><a href="#cb34-89" aria-hidden="true" tabindex="-1"></a>        llm<span class="op">=</span>llm,</span>
+<span id="cb34-90"><a href="#cb34-90" aria-hidden="true" tabindex="-1"></a>        retriever<span class="op">=</span>retriever, <span class="co"># here we are using the vectorstore as a retriever</span></span>
+<span id="cb34-91"><a href="#cb34-91" aria-hidden="true" tabindex="-1"></a>        chain_type<span class="op">=</span><span class="st">"stuff"</span>,</span>
+<span id="cb34-92"><a href="#cb34-92" aria-hidden="true" tabindex="-1"></a>        return_source_documents<span class="op">=</span><span class="va">True</span>, <span class="co"># including source documents in output</span></span>
+<span id="cb34-93"><a href="#cb34-93" aria-hidden="true" tabindex="-1"></a>        chain_type_kwargs<span class="op">=</span>{<span class="st">'prompt'</span>: prompt} <span class="co"># customizing the prompt</span></span>
+<span id="cb34-94"><a href="#cb34-94" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb34-95"><a href="#cb34-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-96"><a href="#cb34-96" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-97"><a href="#cb34-97" aria-hidden="true" tabindex="-1"></a><span class="co"># tabs</span></span>
+<span id="cb34-98"><a href="#cb34-98" aria-hidden="true" tabindex="-1"></a>tab1, tab2, tab3, tab4 <span class="op">=</span> st.tabs([<span class="st">"💬 Chatbot"</span>, <span class="st">"🖹 ChatPDFs"</span>, <span class="st">"📈 ChatPandas"</span>, <span class="st">"🌍 ChatMaps"</span>])</span>
+<span id="cb34-99"><a href="#cb34-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-100"><a href="#cb34-100" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-101"><a href="#cb34-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Chatbot Tab</span></span>
+<span id="cb34-102"><a href="#cb34-102" aria-hidden="true" tabindex="-1"></a><span class="co"># with tab1():</span></span>
+<span id="cb34-103"><a href="#cb34-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-104"><a href="#cb34-104" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-105"><a href="#cb34-105" aria-hidden="true" tabindex="-1"></a><span class="co"># ChatPDFs Tab</span></span>
+<span id="cb34-106"><a href="#cb34-106" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> tab2:</span>
+<span id="cb34-107"><a href="#cb34-107" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Upload PDF files</span></span>
+<span id="cb34-108"><a href="#cb34-108" aria-hidden="true" tabindex="-1"></a>    uploaded_PDF_files <span class="op">=</span> st.file_uploader(<span class="st">"Upload multiple files"</span>, accept_multiple_files<span class="op">=</span><span class="va">True</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"pdf"</span>)</span>
+<span id="cb34-109"><a href="#cb34-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-110"><a href="#cb34-110" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> uploaded_PDF_files:</span>
+<span id="cb34-111"><a href="#cb34-111" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> tempfile.TemporaryDirectory() <span class="im">as</span> tmpdir:</span>
+<span id="cb34-112"><a href="#cb34-112" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> uploaded_file <span class="kw">in</span> uploaded_PDF_files:</span>
+<span id="cb34-113"><a href="#cb34-113" aria-hidden="true" tabindex="-1"></a>            file_name <span class="op">=</span> uploaded_file.name</span>
+<span id="cb34-114"><a href="#cb34-114" aria-hidden="true" tabindex="-1"></a>            file_content <span class="op">=</span> uploaded_file.read()</span>
+<span id="cb34-115"><a href="#cb34-115" aria-hidden="true" tabindex="-1"></a>            st.write(<span class="st">"Filename: "</span>, file_name)</span>
+<span id="cb34-116"><a href="#cb34-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-117"><a href="#cb34-117" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Write the content of the PDF files to a temporary directory</span></span>
+<span id="cb34-118"><a href="#cb34-118" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(os.path.join(tmpdir, file_name), <span class="st">"wb"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb34-119"><a href="#cb34-119" aria-hidden="true" tabindex="-1"></a>                <span class="bu">file</span>.write(file_content)</span>
+<span id="cb34-120"><a href="#cb34-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-121"><a href="#cb34-121" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Load the PDF files from the temporary directory</span></span>
+<span id="cb34-122"><a href="#cb34-122" aria-hidden="true" tabindex="-1"></a>        loader <span class="op">=</span> DirectoryLoader(tmpdir, glob<span class="op">=</span><span class="st">"**/*.pdf"</span>, loader_cls<span class="op">=</span>PyMuPDFLoader)</span>
+<span id="cb34-123"><a href="#cb34-123" aria-hidden="true" tabindex="-1"></a>        documents <span class="op">=</span> loader.load()</span>
+<span id="cb34-124"><a href="#cb34-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-125"><a href="#cb34-125" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Split the PDF files into smaller chunks of text</span></span>
+<span id="cb34-126"><a href="#cb34-126" aria-hidden="true" tabindex="-1"></a>        text_splitter <span class="op">=</span> RecursiveCharacterTextSplitter(chunk_size<span class="op">=</span>chunk_size, chunk_overlap<span class="op">=</span>chunk_overlap)</span>
+<span id="cb34-127"><a href="#cb34-127" aria-hidden="true" tabindex="-1"></a>        documents <span class="op">=</span> text_splitter.split_documents(documents)</span>
+<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a>        embeddings <span class="op">=</span> load_embedding_model(model_path<span class="op">=</span><span class="st">"all-MiniLM-L6-v2"</span>)</span>
+<span id="cb34-129"><a href="#cb34-129" aria-hidden="true" tabindex="-1"></a>        vectorstore <span class="op">=</span> Chroma.from_documents(documents, embeddings)</span>
+<span id="cb34-130"><a href="#cb34-130" aria-hidden="true" tabindex="-1"></a>        <span class="co">#vectorstore.persist()</span></span>
+<span id="cb34-131"><a href="#cb34-131" aria-hidden="true" tabindex="-1"></a>        retriever <span class="op">=</span> vectorstore.as_retriever()</span>
+<span id="cb34-132"><a href="#cb34-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-133"><a href="#cb34-133" aria-hidden="true" tabindex="-1"></a>        prompt_template <span class="op">=</span> <span class="st">""" </span></span>
+<span id="cb34-134"><a href="#cb34-134" aria-hidden="true" tabindex="-1"></a><span class="st">        System Prompt:</span></span>
+<span id="cb34-135"><a href="#cb34-135" aria-hidden="true" tabindex="-1"></a><span class="st">        Your are an AI chatbot that helps users chat with PDF documents. How may I help you today?</span></span>
+<span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-137"><a href="#cb34-137" aria-hidden="true" tabindex="-1"></a><span class="st">        </span><span class="sc">{context}</span></span>
+<span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-139"><a href="#cb34-139" aria-hidden="true" tabindex="-1"></a><span class="st">        </span><span class="sc">{question}</span></span>
+<span id="cb34-140"><a href="#cb34-140" aria-hidden="true" tabindex="-1"></a><span class="st">        """</span></span>
+<span id="cb34-141"><a href="#cb34-141" aria-hidden="true" tabindex="-1"></a>        PROMPT <span class="op">=</span> PromptTemplate(</span>
+<span id="cb34-142"><a href="#cb34-142" aria-hidden="true" tabindex="-1"></a>        template<span class="op">=</span>prompt_template, input_variables<span class="op">=</span>[<span class="st">"context"</span>, <span class="st">"question"</span>]</span>
+<span id="cb34-143"><a href="#cb34-143" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb34-144"><a href="#cb34-144" aria-hidden="true" tabindex="-1"></a>        chain_type_kwargs <span class="op">=</span> {<span class="st">"prompt"</span>: PROMPT}</span>
+<span id="cb34-145"><a href="#cb34-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-146"><a href="#cb34-146" aria-hidden="true" tabindex="-1"></a>        chain <span class="op">=</span> RetrievalQA.from_chain_type(</span>
+<span id="cb34-147"><a href="#cb34-147" aria-hidden="true" tabindex="-1"></a>        llm<span class="op">=</span>Ollama(model<span class="op">=</span>llm_model, temperature<span class="op">=</span>temp_r),</span>
+<span id="cb34-148"><a href="#cb34-148" aria-hidden="true" tabindex="-1"></a>        chain_type<span class="op">=</span><span class="st">"stuff"</span>,</span>
+<span id="cb34-149"><a href="#cb34-149" aria-hidden="true" tabindex="-1"></a>        retriever<span class="op">=</span>retriever,</span>
+<span id="cb34-150"><a href="#cb34-150" aria-hidden="true" tabindex="-1"></a>        chain_type_kwargs<span class="op">=</span>chain_type_kwargs,</span>
+<span id="cb34-151"><a href="#cb34-151" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb34-152"><a href="#cb34-152" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Question-Answer</span></span>
+<span id="cb34-153"><a href="#cb34-153" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get the user question</span></span>
+<span id="cb34-154"><a href="#cb34-154" aria-hidden="true" tabindex="-1"></a>        query <span class="op">=</span> st.text_input(<span class="st">"Ask a question:"</span>)</span>
+<span id="cb34-155"><a href="#cb34-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-156"><a href="#cb34-156" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> query:</span>
+<span id="cb34-157"><a href="#cb34-157" aria-hidden="true" tabindex="-1"></a>                response <span class="op">=</span> chain({<span class="st">'query'</span>: query})</span>
+<span id="cb34-158"><a href="#cb34-158" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Wrapping the text for better output in Jupyter Notebook</span></span>
+<span id="cb34-159"><a href="#cb34-159" aria-hidden="true" tabindex="-1"></a>                wrapped_text <span class="op">=</span> textwrap.fill(response[<span class="st">'result'</span>], width<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb34-160"><a href="#cb34-160" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Display the answer</span></span>
+<span id="cb34-161"><a href="#cb34-161" aria-hidden="true" tabindex="-1"></a>                st.markdown(<span class="ss">f"**Q:** </span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb34-162"><a href="#cb34-162" aria-hidden="true" tabindex="-1"></a>                st.markdown(<span class="ss">f"**A:** </span><span class="sc">{</span>wrapped_text<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb34-163"><a href="#cb34-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-164"><a href="#cb34-164" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-165"><a href="#cb34-165" aria-hidden="true" tabindex="-1"></a><span class="co"># ChatPandas Tab</span></span>
+<span id="cb34-166"><a href="#cb34-166" aria-hidden="true" tabindex="-1"></a><span class="co"># with tab3():</span></span>
+<span id="cb34-167"><a href="#cb34-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-168"><a href="#cb34-168" aria-hidden="true" tabindex="-1"></a><span class="co">#--------------------------------------------------------------#</span></span>
+<span id="cb34-169"><a href="#cb34-169" aria-hidden="true" tabindex="-1"></a><span class="co"># ChatMaps Tab</span></span>
+<span id="cb34-170"><a href="#cb34-170" aria-hidden="true" tabindex="-1"></a><span class="co"># with tab4():</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After Run Ollama docker run below code:</p>
+<pre><code>streamlit run myapp.py</code></pre>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

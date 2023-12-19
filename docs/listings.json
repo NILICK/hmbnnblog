@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/GenAI/2023-12-11-Ollama.html",
+      "/posts/explanations/2023-12-01-AnyDesk.ipynb.html",
       "/posts/geospatial/2023-11-25-WebGIS_QGIS_Server.html",
       "/posts/scientific_research/2023-09-05_Zotero_Configuration.html",
       "/posts/scientific_research/2023-07-13_Research_Workflow_Obsidian.html",
@@ -16,9 +18,9 @@
       "/posts/analysis_methods/2021-08-26-Anaysis_Process_Merra2.html",
       "/posts/geospatial/2021-07-03-Learning-GIS-RS.html",
       "/posts/explanations/2021-07-02-ML-Resources.html",
-      "/posts/geospatial/2021-03-25-address_urls_geodatabase.html",
       "/posts/explanations/2021-03-01_create_blog.html",
-      "/posts/explanations/2021-06-07-My-Notes-Jupyterlab.html"
+      "/posts/explanations/2021-06-07-My-Notes-Jupyterlab.html",
+      "/posts/geospatial/2021-03-25-address_urls_geodatabase.html"
     ]
   }
 ]
