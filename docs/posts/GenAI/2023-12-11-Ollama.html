@@ -915,7 +915,7 @@ sudo docker rm ollama</code></pre>
 <span id="cb39-153"><a href="#cb39-153" aria-hidden="true" tabindex="-1"></a>memory <span class="op">=</span> ConversationBufferMemory(memory_key<span class="op">=</span><span class="st">"chat_history"</span>, chat_memory<span class="op">=</span>msgs, return_messages<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb39-154"><a href="#cb39-154" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-155"><a href="#cb39-155" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup LLM and QA chain</span></span>
-<span id="cb39-156"><a href="#cb39-156" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> Ollama(model<span class="op">=</span><span class="st">"phi"</span>, temperature<span class="op">=</span><span class="dv">0</span>)<span class="co">#, streaming=True)</span></span>
+<span id="cb39-156"><a href="#cb39-156" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> Ollama(model<span class="op">=</span>llm_model, temperature<span class="op">=</span>temp_r)<span class="co">#, streaming=True)</span></span>
 <span id="cb39-157"><a href="#cb39-157" aria-hidden="true" tabindex="-1"></a>qa_chain <span class="op">=</span> ConversationalRetrievalChain.from_llm(</span>
 <span id="cb39-158"><a href="#cb39-158" aria-hidden="true" tabindex="-1"></a>    llm, retriever<span class="op">=</span>retriever, memory<span class="op">=</span>memory, verbose<span class="op">=</span><span class="va">True</span></span>
 <span id="cb39-159"><a href="#cb39-159" aria-hidden="true" tabindex="-1"></a>)</span>
